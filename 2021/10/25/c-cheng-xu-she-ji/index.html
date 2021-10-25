@@ -37,9 +37,9 @@
 
 <meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="白子卿" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="白子卿" type="application/atom+xml">
+</head>
 
 
 
@@ -534,7 +534,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    424
                 </div>
                 
 
@@ -573,11 +573,117 @@
 <p>​    公有的数据和成员函数;</p>
 <p>protected:</p>
 <p>​    保护的数据和成员函数;<br>};</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span>{</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">setx</span><span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">setx</span><span class="params">(<span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		x = val;</span><br><span class="line">	}</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getx</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> c;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Demo::setx</span><span class="params">(<span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	x = val;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	Demo obj;</span><br><span class="line">	obj.<span class="built_in">setx</span>(<span class="number">123</span>);</span><br><span class="line">	cout &lt;&lt; obj.<span class="built_in">getx</span>() &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//cout:123</span></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
 
+class Demo{
+public:
+    int a;
+    int setx(int val);
+#if 0
+    int setx(int val)
+    {
+        x = val;
+    }
+#endif
+
+    int getx()
+    {
+        return x;
+    }
+    
+protected:
+    int b;
+
+private:
+    int c;
+    int x;
+    
+};
+
+int Demo::setx(int val)
+{
+    x = val;
+    return 0;
+}
+
+int main(int argc, char *argv[])
+{
+    Demo obj;
+    obj.setx(123);
+    cout << obj.getx() << endl;
+    
+    return 0;
+}
+
+//cout:123
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-3、构造和析构"><a href="#4-3、构造和析构" class="headerlink" title="4.3、构造和析构"></a>4.3、构造和析构</h3><h4 id="4-3-1、构造函数"><a href="#4-3-1、构造函数" class="headerlink" title="4.3.1、构造函数"></a>4.3.1、构造函数</h4><p>构造函数是一种特殊的成员函数，与其他成员函数不同。</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span>{</span></span><br><span class="line"><span class="keyword">public</span>:		<span class="comment">//公有</span></span><br><span class="line">	<span class="built_in">Demo</span>(<span class="keyword">int</span> val)	<span class="comment">//构造函数：无返回值，函数名与类名相同，可以有形参，定义对象的时候自动调用</span></span><br><span class="line">	{</span><br><span class="line">		myval = val;</span><br><span class="line">		cout &lt;&lt; <span class="string">"func: "</span> &lt;&lt; __func__ &lt;&lt; <span class="string">"line: "</span> &lt;&lt; __LINE__ &lt;&lt; endl;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getval</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> myval;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:	<span class="comment">//私有</span></span><br><span class="line">	<span class="keyword">int</span> myval;</span><br><span class="line">	</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="function">Demo <span class="title">obj</span><span class="params">(<span class="number">123</span>)</span></span>;	<span class="comment">//构造对象并且传递参数</span></span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; obj.<span class="built_in">getval</span>() &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="4-3-2、析构"><a href="#4-3-2、析构" class="headerlink" title="4.3.2、析构"></a>4.3.2、析构</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span>{</span></span><br><span class="line"><span class="keyword">public</span>:		<span class="comment">//公有</span></span><br><span class="line">	<span class="built_in">Demo</span>(<span class="keyword">int</span> val)	<span class="comment">//构造函数：无返回值，函数名与类名相同，可以有形参，定义对象的时候自动调用</span></span><br><span class="line">	{</span><br><span class="line">		myval = val;</span><br><span class="line">		cout &lt;&lt; <span class="string">"func: "</span> &lt;&lt; __func__ &lt;&lt; <span class="string">"line: "</span> &lt;&lt; __LINE__ &lt;&lt; endl;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	~<span class="built_in">Demo</span>()			<span class="comment">//析构函数：无参数，无返回值</span></span><br><span class="line">	{</span><br><span class="line">		cout &lt;&lt; <span class="string">"func: "</span> &lt;&lt; __func__ &lt;&lt; <span class="string">"line: "</span> &lt;&lt; __LINE__ &lt;&lt; endl;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getval</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> myval;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:	<span class="comment">//私有</span></span><br><span class="line">	<span class="keyword">int</span> myval;</span><br><span class="line">	</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="function">Demo <span class="title">obj</span><span class="params">(<span class="number">123</span>)</span></span>;	<span class="comment">//构造对象并且传递参数</span></span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; obj.<span class="built_in">getval</span>() &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+
+class Demo{
+public:        //公有
+    Demo(int val)    //构造函数：无返回值，函数名与类名相同，可以有形参，定义对象的时候自动调用
+    {
+        myval = val;
+        cout << "func: " << __func__ << "line: " << __LINE__ << endl;
+    }
+    
+    int getval()
+    {
+        return myval;
+    }
+
+private:    //私有
+    int myval;
+    
+};
+
+int main(int argc, char *argv[])
+{
+    Demo obj(123);    //构造对象并且传递参数
+    
+    cout << obj.getval() << endl;
+    
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-3-2、析构"><a href="#4-3-2、析构" class="headerlink" title="4.3.2、析构"></a>4.3.2、析构</h4><pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+
+class Demo{
+public:        //公有
+    Demo(int val)    //构造函数：无返回值，函数名与类名相同，可以有形参，定义对象的时候自动调用
+    {
+        myval = val;
+        cout << "func: " << __func__ << "line: " << __LINE__ << endl;
+    }
+    
+    ~Demo()            //析构函数：无参数，无返回值
+    {
+        cout << "func: " << __func__ << "line: " << __LINE__ << endl;
+    }
+    
+    int getval()
+    {
+        return myval;
+    }
+
+private:    //私有
+    int myval;
+    
+};
+
+int main(int argc, char *argv[])
+{
+    Demo obj(123);    //构造对象并且传递参数
+    
+    cout << obj.getval() << endl;
+    
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1634787253868.png" alt="1634787253868"></p>
 <h4 id="4-3-3、拷贝构造"><a href="#4-3-3、拷贝构造" class="headerlink" title="4.3.3、拷贝构造"></a>4.3.3、拷贝构造</h4><p>1、定义对象的一般格式</p>
 <p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1634795594450.png" alt="1634795594450"></p>
@@ -591,41 +697,370 @@
 <h3 id="4-4、this指针"><a href="#4-4、this指针" class="headerlink" title="4.4、this指针"></a>4.4、this指针</h3><p>this指针是一个特殊的指针，指向类对象自身的首地址。</p>
 <p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1634800413078.png" alt="1634800413078"></p>
 <h3 id="4-5、static成员"><a href="#4-5、static成员" class="headerlink" title="4.5、static成员"></a>4.5、static成员</h3><h3 id="4-4、const成员"><a href="#4-4、const成员" class="headerlink" title="4.4、const成员"></a>4.4、const成员</h3><h4 id="4-4-1、const成员函数"><a href="#4-4-1、const成员函数" class="headerlink" title="4.4.1、const成员函数"></a>4.4.1、const成员函数</h4><p>在类内声明语法形式<br>            &lt;数据类型&gt; &lt;函数名&gt; (&lt;参数列表&gt;) const;<br>            在类外定义语法形式<br>            &lt;数据类型&gt;  &lt;类名&gt; :: &lt;函数名&gt; (&lt;参数列表&gt;) const<br>            {<br>            ……<br>            }</p>
-<h4 id="4-4-2、const对象"><a href="#4-4-2、const对象" class="headerlink" title="4.4.2、const对象"></a>4.4.2、const对象</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span>{</span></span><br><span class="line"><span class="keyword">public</span>:		</span><br><span class="line">	<span class="built_in">Demo</span>(<span class="keyword">int</span> a=<span class="number">0</span>, <span class="keyword">int</span> b= <span class="number">0</span>):<span class="built_in">x</span>(a), <span class="built_in">y</span>(b)	</span><br><span class="line">	{</span><br><span class="line">		cout &lt;&lt; <span class="string">"line:"</span> &lt;&lt; __LINE__ &lt;&lt;endl;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">setx</span><span class="params">(<span class="keyword">int</span> val)</span> 	<span class="comment">//const</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		x = val;		<span class="comment">//const 修饰的成员函数 不能修改成员变量</span></span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">sety</span><span class="params">(<span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		y = val;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getx</span><span class="params">()</span> <span class="keyword">const</span>	<span class="comment">//不能修改 可以被const对象调用</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">gety</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> y;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:	</span><br><span class="line">	<span class="keyword">int</span> x;	</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="function">Demo <span class="title">obj</span><span class="params">(<span class="number">321</span>, <span class="number">123</span>)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">const</span> Demo <span class="title">obj2</span><span class="params">(<span class="number">321</span>, <span class="number">123</span>)</span></span>;	<span class="comment">//const 修饰的对象</span></span><br><span class="line">	<span class="comment">//obj.setx(111);			//const 修饰的对象，只能掉const成员函数</span></span><br><span class="line">	obj.<span class="built_in">sety</span>(<span class="number">222</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//obj.setx(333);</span></span><br><span class="line">	cout &lt;&lt; obj2.<span class="built_in">getx</span>()&lt;&lt;endl;</span><br><span class="line">	cout &lt;&lt; obj.<span class="built_in">getx</span>()&lt;&lt;endl;</span><br><span class="line">	cout &lt;&lt; obj.<span class="built_in">gety</span>()&lt;&lt;endl;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输出：</span></span><br><span class="line"><span class="comment">    line:17</span></span><br><span class="line"><span class="comment">    line:17</span></span><br><span class="line"><span class="comment">    321</span></span><br><span class="line"><span class="comment">    321</span></span><br><span class="line"><span class="comment">    222</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="4-4-2、const对象"><a href="#4-4-2、const对象" class="headerlink" title="4.4.2、const对象"></a>4.4.2、const对象</h4><pre class="line-numbers language-c++"><code class="language-c++">#include <assert.h>
+#include <iostream>
 
+using namespace std;
 
+class Demo{
+public:        
+    Demo(int a=0, int b= 0):x(a), y(b)    
+    {
+        cout << "line:" << __LINE__ <<endl;
+    }
+    
+public:
+    void setx(int val)     //const
+    {
+        x = val;        //const 修饰的成员函数 不能修改成员变量
+    }
+    
+    void sety(int val)
+    {
+        y = val;
+    }
+    int getx() const    //不能修改 可以被const对象调用
+    {
+        return x;
+    }
+    int gety()
+    {
+        return y;
+    }
 
+private:    
+    int x;    
+    int y;
+};
+
+int main(int argc, char *argv[])
+{
+    Demo obj(321, 123);
+    const Demo obj2(321, 123);    //const 修饰的对象
+    //obj.setx(111);            //const 修饰的对象，只能掉const成员函数
+    obj.sety(222);
+    
+    //obj.setx(333);
+    cout << obj2.getx()<<endl;
+    cout << obj.getx()<<endl;
+    cout << obj.gety()<<endl;
+    
+    return 0;
+}
+
+/*
+输出：
+    line:17
+    line:17
+    321
+    321
+    222
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-4、友元"><a href="#4-4、友元" class="headerlink" title="4.4、友元"></a>4.4、友元</h3><p>类的朋友</p>
 <h4 id="4-4-1、友元函数"><a href="#4-4-1、友元函数" class="headerlink" title="4.4.1、友元函数"></a>4.4.1、友元函数</h4><p>指：某个函数是类的友元；</p>
 <p>一个类的函数是多个类的函数</p>
-<h4 id="4-4-2、友元类"><a href="#4-4-2、友元类" class="headerlink" title="4.4.2、友元类"></a>4.4.2、友元类</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>{</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">A</span>(<span class="keyword">int</span> val=<span class="number">0</span>):<span class="built_in">myval</span>(val)</span><br><span class="line">	{</span><br><span class="line">		cout&lt;&lt;__LINE__&lt;&lt;endl;</span><br><span class="line">	}</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getval</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> myval;</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span>;</span>	<span class="comment">//声明类B是类A的友元</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> myval;</span><br><span class="line">	</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>{</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">B</span>(<span class="keyword">int</span> val=<span class="number">0</span>):<span class="built_in">myval</span>(val)</span><br><span class="line">	{</span><br><span class="line">		cout&lt;&lt;__LINE__&lt;&lt;endl;</span><br><span class="line">	}</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">setval</span><span class="params">(A &amp;obj)</span>	<span class="comment">//这是A的友元</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		obj.myval = <span class="keyword">this</span>-&gt;myval;	<span class="comment">//访问A类的私有成员</span></span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getval</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> myval;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> myval;</span><br><span class="line">	</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="function">A <span class="title">obj1</span><span class="params">(<span class="number">123</span>)</span></span>;</span><br><span class="line">	<span class="function">B <span class="title">obj2</span><span class="params">(<span class="number">321</span>)</span></span>;</span><br><span class="line">	obj2.<span class="built_in">setval</span>(obj1);	<span class="comment">//通过obj2修改obj1的成员1变量值</span></span><br><span class="line">	</span><br><span class="line">	cout&lt;&lt;obj1.<span class="built_in">getval</span>()&lt;&lt;endl;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输出：</span></span><br><span class="line"><span class="comment">    17</span></span><br><span class="line"><span class="comment">    34</span></span><br><span class="line"><span class="comment">    321</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="4-4-2、友元类"><a href="#4-4-2、友元类" class="headerlink" title="4.4.2、友元类"></a>4.4.2、友元类</h4><pre class="line-numbers language-c++"><code class="language-c++">#include <assert.h>
+#include <iostream>
 
+using namespace std;
 
+class A{
+public:
+    A(int val=0):myval(val)
+    {
+        cout<<__LINE__<<endl;
+    }
+public:
+    int getval()
+    {
+        return myval;
+    }
+    friend class B;    //声明类B是类A的友元
+private:
+    int myval;
+    
+};
 
+class B{
+public:
+    B(int val=0):myval(val)
+    {
+        cout<<__LINE__<<endl;
+    }
+public:
+    void setval(A &obj)    //这是A的友元
+    {
+        obj.myval = this->myval;    //访问A类的私有成员
+    }
+    int getval()
+    {
+        return myval;
+    }
+    
+private:
+    int myval;
+    
+};
+
+int main(int argc, char *argv[])
+{
+    A obj1(123);
+    B obj2(321);
+    obj2.setval(obj1);    //通过obj2修改obj1的成员1变量值
+    
+    cout<<obj1.getval()<<endl;
+    
+    return 0;
+}
+
+/*
+输出：
+    17
+    34
+    321
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="4-4-3、友元成员函数"><a href="#4-4-3、友元成员函数" class="headerlink" title="4.4.3、友元成员函数"></a>4.4.3、友元成员函数</h4><p>B类的成员函数可以是类A的友员</p>
 <p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1634890579045.png" alt="1634890579045"></p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>;</span>   <span class="comment">//前向 声明</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>{</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">B</span>(<span class="keyword">int</span> val=<span class="number">0</span>) :<span class="built_in">myval</span>(val)</span><br><span class="line">    {</span><br><span class="line">        cout&lt;&lt;__LINE__&lt;&lt;endl;</span><br><span class="line">    }</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setval</span><span class="params">(A &amp;)</span></span>; <span class="comment">//  函数的内部声明</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> myval; <span class="comment">//</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 1</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>{</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">A</span>(<span class="keyword">int</span> val=<span class="number">0</span>):<span class="built_in">myval</span>(val)</span><br><span class="line">    {</span><br><span class="line">        cout&lt;&lt;__LINE__&lt;&lt;endl;</span><br><span class="line">    }</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getval</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="keyword">return</span> myval;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="keyword">void</span> <span class="title">B::setval</span><span class="params">(A &amp;)</span></span>; <span class="comment">//声明 B类的成员方法是 类A的友元</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> myval;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">B::setval</span><span class="params">(A &amp;obj)</span>   <span class="comment">//A的友元</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    obj.myval = <span class="keyword">this</span>-&gt;myval; <span class="comment">//</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">A <span class="title">obj</span><span class="params">(<span class="number">123</span>)</span></span>;</span><br><span class="line">    <span class="function">B <span class="title">obj2</span><span class="params">(<span class="number">321</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    obj2.<span class="built_in">setval</span>(obj); </span><br><span class="line">    cout&lt;&lt;obj.<span class="built_in">getval</span>()&lt;&lt;endl;</span><br><span class="line">    <span class="comment">//cout&lt;&lt;ob2.getval()&lt;&lt;endl;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输出：</span></span><br><span class="line"><span class="comment">    22</span></span><br><span class="line"><span class="comment">    9</span></span><br><span class="line"><span class="comment">    321</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <iostream>
+using namespace std;
+class A;   //前向 声明
 
+class B{
+public:
+    B(int val=0) :myval(val)
+    {
+        cout<<__LINE__<<endl;
+    }
+public:
+    void setval(A &); //  函数的内部声明
+private:
+    int myval; //
+};
+
+#if 1
+class A{
+public:
+    A(int val=0):myval(val)
+    {
+        cout<<__LINE__<<endl;
+    }
+public:
+    int getval()
+    {
+        return myval;
+    }
+
+    friend void B::setval(A &); //声明 B类的成员方法是 类A的友元
+
+private:
+    int myval;
+};
+
+#endif 
+
+void B::setval(A &obj)   //A的友元
+{
+    obj.myval = this->myval; //
+}
+
+int main()
+{
+    A obj(123);
+    B obj2(321);
+
+    obj2.setval(obj); 
+    cout<<obj.getval()<<endl;
+    //cout<<ob2.getval()<<endl;
+    return 0;
+}
+
+/*
+输出：
+    22
+    9
+    321
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="五、运算符重载"><a href="#五、运算符重载" class="headerlink" title="五、运算符重载"></a>五、运算符重载</h2><h3 id="5-1、为什么需要重载运算符"><a href="#5-1、为什么需要重载运算符" class="headerlink" title="5.1、为什么需要重载运算符"></a>5.1、为什么需要重载运算符</h3><p>函数可以重载，运算符也可以重载。</p>
 <p>运算符重载：对已有的运算符重新进行定义，赋予其另一种功能，以适应不同的数据类型。</p>
 <h3 id="5-2、运算符重载简介"><a href="#5-2、运算符重载简介" class="headerlink" title="5.2、运算符重载简介"></a>5.2、运算符重载简介</h3><p>运算符重载的一般语法如下：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;返回类型说明符&gt; <span class="keyword">operator</span> &lt;运算符符号&gt;(&lt;参数表&gt;)</span><br><span class="line">{</span><br><span class="line">    &lt;函数体&gt;</span><br><span class="line">}                          </span><br></pre></td></tr></tbody></table></figure>
-
+<pre class="line-numbers language-c++"><code class="language-c++"><返回类型说明符> operator <运算符符号>(<参数表>)
+{
+    <函数体>
+}                          
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>==不能被重载的运算符，其余的都可以被重载==<br>逗号”.” 、？号表达式”?:”、 sizeof 、作用域”::”、指针运算符”*”</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>_string.cpp</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-c++"><code class="language-c++">1_string.cpp
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="5-3、友元运算符重载"><a href="#5-3、友元运算符重载" class="headerlink" title="5.3、友元运算符重载"></a>5.3、友元运算符重载</h3><h4 id="5-3-1、含义"><a href="#5-3-1、含义" class="headerlink" title="5.3.1、含义"></a>5.3.1、含义</h4><p>运算符重载作为类的友元</p>
+<h4 id="5-3-2、友元运算符重载的语法形式："><a href="#5-3-2、友元运算符重载的语法形式：" class="headerlink" title="5.3.2、友元运算符重载的语法形式："></a>5.3.2、友元运算符重载的语法形式：</h4><pre class="line-numbers language-c++"><code class="language-c++">class 类名
+{
+    friend 返回类型 operator 运算符(形参表);
+}
+类外定义格式:
+返回类型 operator 运算符(参数表)
+{
+    函数体;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="5-3-3、四则运算符运算"><a href="#5-3-3、四则运算符运算" class="headerlink" title="5.3.3、四则运算符运算"></a>5.3.3、四则运算符运算</h4><pre class="line-numbers language-c++"><code class="language-c++">/*四则运算符运算*/
+#include <iostream>
+using namespace std;
 
-<h3 id="5-3、友元运算符重载"><a href="#5-3、友元运算符重载" class="headerlink" title="5.3、友元运算符重载"></a>5.3、友元运算符重载</h3><p>友元运算符重载的语法形式：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名</span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="keyword">friend</span> 返回类型 <span class="keyword">operator</span> 运算符(形参表);</span><br><span class="line">}</span><br><span class="line">类外定义格式:</span><br><span class="line">返回类型 <span class="keyword">operator</span> 运算符(参数表)</span><br><span class="line">{</span><br><span class="line">    函数体</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+class Demo{
+public:    
+    Demo(int val):myval(val)
+    {
+        cout<<__LINE__<<endl;
+    }
+    
+public:    
+    int getval()const
+    {
+        return this->myval;
+    }
+    
+    friend Demo operator + (Demo &obj1, Demo &obj2);
+    friend Demo operator - (Demo &obj1, Demo &obj2);
+    friend Demo operator * (Demo &obj1, Demo &obj2);
+    friend Demo operator / (Demo &obj1, Demo &obj2);
+    
+private:
+    int myval;
+};
 
+//重载运算符 '+'
+//'+' 是双目运算符，需要两个参数
+Demo operator + (Demo &obj1, Demo &obj2)
+{
+    Demo obj3(obj1.myval + obj2.myval);    //运算obj1和obj2的和然后再通过构造函数
+    return obj3;
+}
+Demo operator - (Demo &obj1, Demo &obj2)
+{
+    Demo obj3(obj1.myval - obj2.myval);    //运算obj1和obj2的和然后再通过构造函数
+    return obj3;
+}
+Demo operator * (Demo &obj1, Demo &obj2)
+{
+    Demo obj3(obj1.myval * obj2.myval);    //运算obj1和obj2的和然后再通过构造函数
+    return obj3;
+}
+Demo operator / (Demo &obj1, Demo &obj2)
+{
+    Demo obj3(obj1.myval / obj2.myval);    //运算obj1和obj2的和然后再通过构造函数
+    return obj3;
+}
 
+int main(int argc, char *argv[])
+{
+    Demo a(8);
+    Demo b(2);
+    Demo c = operator + (a, b);    //Demo c = a+b;
+    Demo d = operator - (a, b);    //Demo d = a-b;
+    Demo e = operator * (a, b);    //Demo d = a*b;
+    Demo f = operator / (a, b);    //Demo d = a/b;
+    
+    cout << a.getval() << endl;
+    cout << b.getval() << endl;
+    cout << "a + b: " << c.getval() << endl;
+    cout << "a - b: " << d.getval() << endl;
+    cout << "a * b: " << e.getval() << endl;
+    cout << "a / b: " << f.getval() << endl;
+    
+    return 0;
+}
 
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*四则运算符运算*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span>{</span></span><br><span class="line"><span class="keyword">public</span>:	</span><br><span class="line">	<span class="built_in">Demo</span>(<span class="keyword">int</span> val):<span class="built_in">myval</span>(val)</span><br><span class="line">	{</span><br><span class="line">		cout&lt;&lt;__LINE__&lt;&lt;endl;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line"><span class="keyword">public</span>:	</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getval</span><span class="params">()</span><span class="keyword">const</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>-&gt;myval;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">friend</span> Demo <span class="keyword">operator</span> + (Demo &amp;obj1, Demo &amp;obj2);</span><br><span class="line">	<span class="keyword">friend</span> Demo <span class="keyword">operator</span> - (Demo &amp;obj1, Demo &amp;obj2);</span><br><span class="line">	<span class="keyword">friend</span> Demo <span class="keyword">operator</span> * (Demo &amp;obj1, Demo &amp;obj2);</span><br><span class="line">	<span class="keyword">friend</span> Demo <span class="keyword">operator</span> / (Demo &amp;obj1, Demo &amp;obj2);</span><br><span class="line">	</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> myval;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">//重载运算符 '+'</span></span><br><span class="line"><span class="comment">//'+' 是双目运算符，需要两个参数</span></span><br><span class="line">Demo <span class="keyword">operator</span> + (Demo &amp;obj1, Demo &amp;obj2)</span><br><span class="line">{</span><br><span class="line">	<span class="function">Demo <span class="title">obj3</span><span class="params">(obj1.myval + obj2.myval)</span></span>;	<span class="comment">//运算obj1和obj2的和然后再通过构造函数</span></span><br><span class="line">	<span class="keyword">return</span> obj3;</span><br><span class="line">}</span><br><span class="line">Demo <span class="keyword">operator</span> - (Demo &amp;obj1, Demo &amp;obj2)</span><br><span class="line">{</span><br><span class="line">	<span class="function">Demo <span class="title">obj3</span><span class="params">(obj1.myval - obj2.myval)</span></span>;	<span class="comment">//运算obj1和obj2的和然后再通过构造函数</span></span><br><span class="line">	<span class="keyword">return</span> obj3;</span><br><span class="line">}</span><br><span class="line">Demo <span class="keyword">operator</span> * (Demo &amp;obj1, Demo &amp;obj2)</span><br><span class="line">{</span><br><span class="line">	<span class="function">Demo <span class="title">obj3</span><span class="params">(obj1.myval * obj2.myval)</span></span>;	<span class="comment">//运算obj1和obj2的和然后再通过构造函数</span></span><br><span class="line">	<span class="keyword">return</span> obj3;</span><br><span class="line">}</span><br><span class="line">Demo <span class="keyword">operator</span> / (Demo &amp;obj1, Demo &amp;obj2)</span><br><span class="line">{</span><br><span class="line">	<span class="function">Demo <span class="title">obj3</span><span class="params">(obj1.myval / obj2.myval)</span></span>;	<span class="comment">//运算obj1和obj2的和然后再通过构造函数</span></span><br><span class="line">	<span class="keyword">return</span> obj3;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="function">Demo <span class="title">a</span><span class="params">(<span class="number">8</span>)</span></span>;</span><br><span class="line">	<span class="function">Demo <span class="title">b</span><span class="params">(<span class="number">2</span>)</span></span>;</span><br><span class="line">	Demo c = <span class="keyword">operator</span> + (a, b);	<span class="comment">//Demo c = a+b;</span></span><br><span class="line">	Demo d = <span class="keyword">operator</span> - (a, b);	<span class="comment">//Demo d = a-b;</span></span><br><span class="line">	Demo e = <span class="keyword">operator</span> * (a, b);	<span class="comment">//Demo d = a*b;</span></span><br><span class="line">	Demo f = <span class="keyword">operator</span> / (a, b);	<span class="comment">//Demo d = a/b;</span></span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; a.<span class="built_in">getval</span>() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; b.<span class="built_in">getval</span>() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">"a + b: "</span> &lt;&lt; c.<span class="built_in">getval</span>() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">"a - b: "</span> &lt;&lt; d.<span class="built_in">getval</span>() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">"a * b: "</span> &lt;&lt; e.<span class="built_in">getval</span>() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">"a / b: "</span> &lt;&lt; f.<span class="built_in">getval</span>() &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">cout：</span></span><br><span class="line"><span class="comment">15</span></span><br><span class="line"><span class="comment">15</span></span><br><span class="line"><span class="comment">15</span></span><br><span class="line"><span class="comment">15</span></span><br><span class="line"><span class="comment">15</span></span><br><span class="line"><span class="comment">15</span></span><br><span class="line"><span class="comment">8</span></span><br><span class="line"><span class="comment">2</span></span><br><span class="line"><span class="comment">a + b: 10</span></span><br><span class="line"><span class="comment">a - b: 6</span></span><br><span class="line"><span class="comment">a * b: 16</span></span><br><span class="line"><span class="comment">a / b: 4</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></tbody></table></figure>
+/*
+cout：
+15
+15
+15
+15
+15
+15
+8
+2
+a + b: 10
+a - b: 6
+a * b: 16
+a / b: 4
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="5-3-4、前-与后-的实现"><a href="#5-3-4、前-与后-的实现" class="headerlink" title="5.3.4、前++与后++的实现"></a>5.3.4、前++与后++的实现</h4><pre class="line-numbers language-c++"><code class="language-c++">/*前++与后++的实现*/
+++
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="5-3-5、”-”运算"><a href="#5-3-5、”-”运算" class="headerlink" title="5.3.5、”!”运算"></a>5.3.5、”!”运算</h4><pre class="line-numbers language-c++"><code class="language-c++">/*!运算*/
+4_operator_friend_boll.cpp
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="5-4、成员函数运算符重载"><a href="#5-4、成员函数运算符重载" class="headerlink" title="5.4、成员函数运算符重载"></a>5.4、成员函数运算符重载</h3><p>函数体中没有this指针指向第一个操作数，重载函数的形参个数 = 操作数；除了b++或b––。<br>重载函数的第一个形参，表示第一个操作数 。</p>
+<h4 id="5-4-1、成员函数运算符重载的语法形式："><a href="#5-4-1、成员函数运算符重载的语法形式：" class="headerlink" title="5.4.1、成员函数运算符重载的语法形式："></a>5.4.1、成员函数运算符重载的语法形式：</h4><pre class="line-numbers language-c++"><code class="language-c++">class 类名
+{
+    返回类型 operator 运算符(形参表);
+}
+类外定义格式:
+返回类型:: operator 运算符(形参表)
+{
+    函数体;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="5-4-2、”-”运算"><a href="#5-4-2、”-”运算" class="headerlink" title="5.4.2、”+=”运算"></a>5.4.2、”+=”运算</h4><pre class="line-numbers language-c++"><code class="language-c++">/*+=运算*/
+#include <iostream>
+using namespace std;
 
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*前++与后++的实现*/</span></span><br><span class="line">++</span><br></pre></td></tr></tbody></table></figure>
+class Demo{
+public:    
+    Demo(int x):myval(x)
+    {
+        cout<<__LINE__<<endl;
+    }
+    
+public:    
+    int getval();
+    
+    Demo operator += (Demo &obj);    //声明运算符重载 +=
+    
+private:
+    int myval;
+};
 
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!运算*/</span></span><br><span class="line"><span class="number">4</span>_operator_friend_boll.cpp</span><br></pre></td></tr></tbody></table></figure>
+int Demo:: getval()
+{
+    return this->myval;
+}
 
-<h4 id="5-3-1、含义"><a href="#5-3-1、含义" class="headerlink" title="5.3.1、含义"></a>5.3.1、含义</h4><h3 id="5-4、成员函数运算符重载"><a href="#5-4、成员函数运算符重载" class="headerlink" title="5.4、成员函数运算符重载"></a>5.4、成员函数运算符重载</h3><h3 id="5-5、运算符重载注意事项"><a href="#5-5、运算符重载注意事项" class="headerlink" title="5.5、运算符重载注意事项"></a>5.5、运算符重载注意事项</h3>
+Demo Demo::operator += (Demo &obj)    //内部成员函数重载 有this指针，可以用this，传参是可以少一个
+{
+    this->myval += obj.myval;
+    return (*this);                    //返回this指针指向的对象
+}
+
+int main(int argc, char *argv[])
+{
+    Demo a(222);
+    Demo b(444);
+    
+    a+=b;            //等价a.operator +=(b);
+    cout << a.getval() << endl;
+    cout << b.getval() << endl;
+    
+    return 0;
+}
+
+/*
+cout：
+15
+15
+666
+444
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>1、用友元重载+实现对象与整型数相加 Demo b(5):</p>
+<p>b+3;</p>
+<p>2、成员函数重载实现b+3</p>
+<h3 id="5-5、运算符重载注意事项"><a href="#5-5、运算符重载注意事项" class="headerlink" title="5.5、运算符重载注意事项"></a>5.5、运算符重载注意事项</h3>
                 
             </div>
             <hr/>
@@ -1081,7 +1516,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">18.4k</span>
+                        class="white-color">16.8k</span>
             
             
             
