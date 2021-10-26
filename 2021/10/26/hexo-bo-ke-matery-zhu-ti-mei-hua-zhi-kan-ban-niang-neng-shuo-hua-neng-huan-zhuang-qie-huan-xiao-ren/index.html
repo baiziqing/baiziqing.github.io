@@ -5,9 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="博客制作,个人经验分享,嵌入式人,工智能等,Linux,C语言,c++,arm,qt">
-    <meta name="description" content="一、效果图二、初级hexo的官方是支持看板娘的，已经封装好了插件，但只是模型，不能说话、不能换装、功能较少。
-3.1、安装模块三、高级 大神作品，功能齐全。能说话、能换装、能玩游戏、能拍照、还能自定义。 
-3.1、下载文件 下载 张书樵大神">
+    <meta name="description" content="一、简介1.1、Live2DLive2D是一种应用于电子游戏的绘图渲染技术，由日本Cybernoids公司开发，通过一系列的连续图像和人物建模来生成一种类似二维图像的三维模型，换句话说就是2D的素材实现一定程度的3D效果，但只能是一定程度3">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -39,9 +37,9 @@
 
 <meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="白子卿" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="白子卿" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -473,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    230
+                    1k
                 </div>
                 
 
@@ -516,25 +514,91 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、效果图"><a href="#一、效果图" class="headerlink" title="一、效果图"></a>一、效果图</h2><h2 id="二、初级"><a href="#二、初级" class="headerlink" title="二、初级"></a>二、初级</h2><p>hexo的官方是支持看板娘的，已经封装好了插件，但只是模型，不能说话、不能换装、功能较少。</p>
-<h3 id="3-1、安装模块"><a href="#3-1、安装模块" class="headerlink" title="3.1、安装模块"></a>3.1、安装模块</h3><h2 id="三、高级"><a href="#三、高级" class="headerlink" title="三、高级"></a>三、高级</h2><p> 大神作品，功能齐全。能说话、能换装、能玩游戏、能拍照、还能自定义。 </p>
-<h3 id="3-1、下载文件"><a href="#3-1、下载文件" class="headerlink" title="3.1、下载文件"></a>3.1、下载文件</h3><p> 下载 <a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">张书樵大神的项目</a>，解压到本地博客目录的 <code>themes/matrey/source</code> 下，修改文件夹名为 <code>live2d-widget</code>，修改项目中的 <code>autoload.js</code> 文件，如下：<br>==将 ：==</p>
-<pre class="line-numbers language-html"><code class="language-html">//const live2d_path = "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+                <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h3 id="1-1、Live2D"><a href="#1-1、Live2D" class="headerlink" title="1.1、Live2D"></a>1.1、Live2D</h3><p><code>Live2D</code>是一种应用于电子游戏的绘图渲染技术，由日本<code>Cybernoids</code>公司开发，通过一系列的连续图像和人物建模来生成一种类似二维图像的三维模型，换句话说就是2D的素材实现一定程度的3D效果，但只能是一定程度3D，因为Live 2D人物无法大幅度转身。 </p>
+<p> 很多知名的动漫都是<code>Live2D</code>游戏改编的或者反过来的，例如：《我的妹妹不可能有那么可爱》、《我的朋友很少》、《樱花庄的宠物女孩》等。 </p>
+<p><code>ive2d</code>官方网站就是<code>live2d.com</code>，里面提供了<code>live2d</code>开发和编辑软件（如<code>Live2D Cubism editor和Live2D Euclideditor</code>），还有开发使用教程等，对相关制作感兴趣的可以看看。 </p>
+<h3 id="2-1、看板娘"><a href="#2-1、看板娘" class="headerlink" title="2.1、看板娘"></a>2.1、看板娘</h3><p>看板娘是一种职业和习惯称呼，也是<code>ACGN</code>次文化中的萌属性之一。简而言之就是小店的女服务生，也有“吸引顾客，招揽生意，提高人气”等作用类似品牌形象代言人的含义。</p>
+<p>模型预览：<a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">https://huaji8.top/post/live2d-plugin-2.0/</a> </p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/a2d201771h112b195e741490833a54b5?fid=1789975539-250528-445956090594144&amp;time=1635260400&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-oJB2D/ZwihrsvR2ik1XY55wgcLA=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=16384585720111456&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<h2 id="二、小白水平"><a href="#二、小白水平" class="headerlink" title="二、小白水平"></a>二、小白水平</h2><p>hexo的官方是支持看板娘的，已经封装好了插件，但只是模型，不能说话、不能换装、功能较少。</p>
+<h3 id="2-1、准备工作"><a href="#2-1、准备工作" class="headerlink" title="2.1、准备工作"></a>2.1、准备工作</h3><p> 检查博客主目录下的<code>package.json</code>是否有<code>"hexo-helper-live2d"</code>：“^3.0.3”，依赖：</p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/eb0261ac5v7bff0824f136d6e30f449b?fid=1789975539-250528-968302098057694&amp;time=1635256800&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-XaxNmMsn54kr8I2e/5l4yVUGhoI=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=15713094858249023&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<p> 有的话可以先卸载：</p>
+<pre class="line-numbers language-html"><code class="language-html">npm uninstall hexo-helper-live2d 
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>==修改成：==</p>
-<pre class="line-numbers language-html"><code class="language-html">const live2d_path = "/live2d-widget/";
+<h3 id="2-2、安装依赖"><a href="#2-2、安装依赖" class="headerlink" title="2.2、安装依赖"></a>2.2、安装依赖</h3><pre class="line-numbers language-c++"><code class="language-c++">npm install --save hexo-helper-live2d
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="D:\ZiyuBlogs\source_posts\C++程序设计.assets\1635218448135.png" alt="1635218448135"></p>
+<p> 安装过程中可能遇到一些依赖性问题，按提示做就行 </p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/46e26f128p1102e33d0c97f0033b54e3?fid=1789975539-250528-267289330636601&amp;time=1635256800&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-KVTo9vrbXbq5/zCjpqEowo0GuFQ=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=15713094858249023&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<p> 遇到这种就运行<code>npm audit fix</code>，如果还不成功，会提示你用<code>npm audit fix --force</code>，一般这个时候就成功了。 </p>
+<p> 成功了之后可以看到当前目录的<code>node_modules/</code>下有个<code>live2d-widget</code>目录，这是动画的主配置： </p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/9b55bfdbeh4c00e8decb6128c58b1430?fid=1789975539-250528-146705711326910&amp;time=1635256800&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-P+tlauRrvviEcbuS0YWHC65GjUo=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=15713094858249023&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<p>这个时候是没有模型文件的，所以下一步是下载模型文件。</p>
+<h3 id="2-3、下载model文件"><a href="#2-3、下载model文件" class="headerlink" title="2.3、下载model文件"></a>2.3、下载model文件</h3><p>模型仓库 使用 <code>npm install {packagename}</code>命令进行下载</p>
+<p>模型预览：<a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">https://huaji8.top/post/live2d-plugin-2.0/</a></p>
+<p>模型下载：<a target="_blank" rel="noopener" href="https://github.com/xiazeyu/live2d-widget-models">https://github.com/xiazeyu/live2d-widget-models</a> </p>
+<p>模型文件可直接用npm安装：如下</p>
+<pre class="line-numbers language-html"><code class="language-html">npm install live2d-widget-model-shizuku        //注意：shizuku下载对应看板娘名称
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>model</code>名字可在<code>live2d-widget-models</code>中找到，也可点击<code>live2d</code>看板娘模型预览来选择你喜欢的模型进行安装。<br>安装完成可以在<code>node_modules/</code>下看到<code>live2d-widget-model-shizuku</code>文件夹 </p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/028511b36sc56a3d8f81fc8ba1162eb1?fid=1789975539-250528-314329912568235&amp;time=1635256800&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-1fcDPTCR05It+NPkF4JqYc7jqdw=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=15713094858249023&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<h3 id="2-4、添加live2d看板娘到hexo"><a href="#2-4、添加live2d看板娘到hexo" class="headerlink" title="2.4、添加live2d看板娘到hexo"></a>2.4、添加live2d看板娘到hexo</h3><p>配置<code>Hexo</code>的主<code>_config.yml</code>或者使用的主题的<code>_config.yml</code><br>添加以下代码到配置文件中： </p>
+<pre class="line-numbers language-html"><code class="language-html"># Live2D看板娘
+live2d:
+  enable: true
+  pluginModelPath: assets/
+  model:
+    #模板目录，在node_modules里
+    use: live2d-widget-model-shizuku      //注意：shizuku运行对应看板娘名称
+  display:
+    position: right
+    width: 300 
+    height: 600
+  mobile:
+    # 在手机端显示
+    show: false   
+  rect:
+    opacity:0.7
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-5、查看效果"><a href="#2-5、查看效果" class="headerlink" title="2.5、查看效果"></a>2.5、查看效果</h3><p> 使用<code>hexo g</code>生成文件，使用<code>hexo server</code>即可在本地查看效果： </p>
+<pre class="line-numbers language-html"><code class="language-html"># 生成文件
+hexo g
+
+# 本地浏览
+hexo s -p 555
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/0beac66e7tbd707ce2083513d3d452fb?fid=1789975539-250528-155082100884792&amp;time=1635260400&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-NuQCcWr/X43Xhi9dbTOrtp+1SbQ=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=16621584832736266&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/e22e5615btff4b453452ffdea2963488?fid=1789975539-250528-919694749079748&amp;time=1635256800&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-gA8goq1eTn1vDd0W1fv0pLHqCsE=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=15951498484334986&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<p> 打开浏览器访问：<a target="_blank" rel="noopener" href="http://localhost:5555/">http://localhost:5555</a> 即可看到效果： </p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/118fb79eegfee9e7c43349659ef749c7?fid=1789975539-250528-476488513659248&amp;time=1635260400&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-dwT+VdfvkvBMHenAQFWRpEFHjbQ=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=16279299425115758&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<h3 id="2-6、发布"><a href="#2-6、发布" class="headerlink" title="2.6、发布"></a>2.6、发布</h3><p> 在本地找到满意的效果后，使用<code>hexo d</code>将其发布到你的hexo服务器上，即可在外网查看了。 </p>
+<h2 id="三、大神水平"><a href="#三、大神水平" class="headerlink" title="三、大神水平"></a>三、大神水平</h2><p> 大神作品，功能齐全：能说话、能换装、能玩游戏、能拍照、自动切换板娘、还能自定义。 </p>
+<h3 id="3-1、下载文件"><a href="#3-1、下载文件" class="headerlink" title="3.1、下载文件"></a>3.1、下载文件</h3><p>GitHub： <a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">张书樵大神的项目</a></p>
+<p>百度云：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1sCkzBch1avDv0hkaw7B8wg">live2d-widget-master.zip</a>  提取码：ziqi</p>
+<p>解压到本地博客目录的 <code>themes/matrey/source</code> 下，并修改文件夹名为 <code>live2d-widget</code>，修改项目中的 <code>autoload.js</code> 文件，如下：<br><code>将 ：</code></p>
+<pre class="line-numbers language-html"><code class="language-html">//注销
+//const live2d_path = "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>修改成：</code></p>
+<pre class="line-numbers language-html"><code class="language-html">//打开
+const live2d_path = "/live2d-widget/";
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/c6f7ca150g01b53e28b224ea86ceee3b?fid=1789975539-250528-189886906370914&amp;time=1635249600&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-Tb9kUzmrrwU42LpNCJqx+N5VjvQ=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=13264390367765744&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
 <h3 id="3-2、新增内容"><a href="#3-2、新增内容" class="headerlink" title="3.2、新增内容"></a>3.2、新增内容</h3><p> 在<code>/themes/matrey/layout/layout.ejs</code>中，新增如下内容： </p>
 <pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/live2d-widget/autoload.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="D:\ZiyuBlogs\source_posts\C++程序设计.assets\1635218642032.png" alt="1635218642032"></p>
-<h3 id="3-1、在主题配置文件"><a href="#3-1、在主题配置文件" class="headerlink" title="3.1、在主题配置文件"></a>3.1、在主题配置文件</h3><pre class="line-numbers language-html"><code class="language-html">live2d:
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/cb5643cf1kdad1e5b41a449f337baa7c?fid=1789975539-250528-25895358608312&amp;time=1635249600&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-oFm+wTajQ66ejXZUKUUpAcYQMGQ=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=13338601731471002&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<h3 id="3-3、主题配置文件"><a href="#3-3、主题配置文件" class="headerlink" title="3.3、主题配置文件"></a>3.3、主题配置文件</h3><p> 在 <code>主题配置文件</code>中, <code>/themes/matrey/_config.yml</code>新增如下内容： </p>
+<pre class="line-numbers language-html"><code class="language-html">live2d:
   enable: true
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="D:\ZiyuBlogs\source_posts\C++程序设计.assets\1635218845074.png" alt="1635218845074"></p>
-<h3 id="3-1、修改"><a href="#3-1、修改" class="headerlink" title="3.1、修改"></a>3.1、修改</h3><p> 想修改看板娘大小、位置、格式、文本内容等，可查看并修改 <code>waifu-tips.js</code> 、 <code>waifu-tips.json</code> 和 <code>waifu.css</code>。 </p>
-<h3 id="3-1、效果如图："><a href="#3-1、效果如图：" class="headerlink" title="3.1、效果如图："></a>3.1、效果如图：</h3>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/6a18c6028iae01de232e37b597a72509?fid=1789975539-250528-1067975557203980&amp;time=1635249600&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-Sm9E3qTeTtlQ/IaBEBkdMrgwQLY=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=13363232879024885&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<h3 id="3-4、可修改"><a href="#3-4、可修改" class="headerlink" title="3.4、可修改"></a>3.4、可修改</h3><p> 想修改看板娘大小、位置、格式、文本内容等，可查看并修改 ：<code>waifu-tips.js</code> 、 <code>waifu-tips.json</code> 和 <code>waifu.css</code>。 </p>
+<h3 id="3-5、效果如图"><a href="#3-5、效果如图" class="headerlink" title="3.5、效果如图"></a>3.5、效果如图</h3><p>可以来我的博客看一看(*￣︶￣)： <a target="_blank" rel="noopener" href="https://baiziqing.github.io/">https://baiziqing.github.io/</a> </p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/840dce293j5fa8dbf0a32c4d99481bb2?fid=1789975539-250528-466233969120453&amp;time=1635260400&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-ZNEdITxAm/LFnimnnjcYCaoh/XI=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=16751828992787479&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/80fe208cah20a4f5c4a25f574cadc1ed?fid=1789975539-250528-1078671342672383&amp;time=1635260400&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-eHoRP6I7v3Jyx4ttfimsaDPzG7U=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=16384585720111456&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/2a4e0c61eq4dc2439b9be06b007c4945?fid=1789975539-250528-695399144906094&amp;time=1635260400&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-Yz4/Xc4cZL7q6bxoDe4d8wWRPdI=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=16751828992787479&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+
                 
             </div>
             <hr/>
@@ -1258,7 +1322,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">4k</span>
+                        class="white-color">4.2k</span>
             
             
             
