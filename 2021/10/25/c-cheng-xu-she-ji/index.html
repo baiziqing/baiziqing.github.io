@@ -467,7 +467,7 @@ C++是C的升级、面向对象
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-26
+                    2021-10-27
                 </div>
                 
 
@@ -1901,7 +1901,20 @@ cout:
 3
 */</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<h2 id="七、类继承"><a href="#七、类继承" class="headerlink" title="七、类继承"></a>七、类继承</h2><h3 id="7-1、概念"><a href="#7-1、概念" class="headerlink" title="7.1、概念"></a>7.1、概念</h3><p>在进行C编程的时候，<code>代码重用的目的就是提高开发效率、减少错误</code>、让大规模代码开发的关注点转到软件结构上。<br>C++(OOP)的代码重用除了简单层次的提供类库,还提出了更高层次：<br>类继承( inheritance)、多态( Polymorphism)、泛型编程( Generic Programming)，等等。</p>
+<p>在C++中,所谓“继承”就是在一个已存在的类的基础上建立一个新的类。</p>
+<p>学生称为基类或父类</p>
+<p>新建如：小学生称为派生类或子类</p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/be673280bva0bd6c7d867d80530e9d8f?fid=1789975539-250528-987681328585093&amp;time=1635296400&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-e5Nh3UcgG3rr0RoAZPW4OtTuyls=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=26281301271095606&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<h3 id="7-2、派生一个类"><a href="#7-2、派生一个类" class="headerlink" title="7.2、派生一个类"></a>7.2、派生一个类</h3><h4 id="7-2-1、语法形式"><a href="#7-2-1、语法形式" class="headerlink" title="7.2.1、语法形式"></a>7.2.1、语法形式</h4><pre class="line-numbers language-c++"><code class="language-c++">class子类名:权限访问限定符 基类名1,权限访问限定符 基类名2,...
+{
+    //class body
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="7-2-2、权限访问符"><a href="#7-2-2、权限访问符" class="headerlink" title="7.2.2、权限访问符"></a>7.2.2、权限访问符</h4><p>c:表示基类的 public/ protected成员可以被子类访问,通过子类对象可访问基类的 oublic成员<br>tected/private:表示基类的 public/ protected.减员可以被子类访问,通过子类对象不能访问基类</p>
+<pre class="line-numbers language-c++"><code class="language-c++">1
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="7-3、派生类的构造及析构"><a href="#7-3、派生类的构造及析构" class="headerlink" title="7.3、派生类的构造及析构"></a>7.3、派生类的构造及析构</h3><h3 id="7-4、is-a关系"><a href="#7-4、is-a关系" class="headerlink" title="7.4、is-a关系"></a>7.4、is-a关系</h3><h3 id="7-5、多重继承"><a href="#7-5、多重继承" class="headerlink" title="7.5、多重继承"></a>7.5、多重继承</h3><h2 id="八、多态"><a href="#八、多态" class="headerlink" title="八、多态"></a>八、多态</h2><h2 id="九、异常"><a href="#九、异常" class="headerlink" title="九、异常"></a>九、异常</h2><h2 id="十、转换函数"><a href="#十、转换函数" class="headerlink" title="十、转换函数"></a>十、转换函数</h2><h2 id="十一、智能指钍"><a href="#十一、智能指钍" class="headerlink" title="十一、智能指钍"></a>十一、智能指钍</h2><h2 id="十二、STL"><a href="#十二、STL" class="headerlink" title="十二、STL"></a>十二、STL</h2>
                 
             </div>
             <hr/>
