@@ -461,14 +461,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-24
+                    2021-10-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-01-17
+                    2021-10-28
                 </div>
                 
 
@@ -719,9 +719,9 @@ int main() {
 
     int a = 10;
     int b = 20;
-    //int &c; //错误，引用必须初始化
+    //int &c;     //错误，引用必须初始化
     int &c = a; //一旦初始化后，就不可以更改
-    c = b; //这是赋值操作，不是更改引用
+    c = b;         //这是赋值操作，不是更改引用
 
     cout << "a = " << a << endl;
     cout << "b = " << b << endl;
@@ -735,21 +735,21 @@ int main() {
 <h3 id="2-3-引用做函数参数"><a href="#2-3-引用做函数参数" class="headerlink" title="2.3 引用做函数参数"></a>2.3 引用做函数参数</h3><p><strong>作用：</strong>函数传参时，可以利用引用的技术让形参修饰实参</p>
 <p><strong>优点：</strong>可以简化指针修改实参</p>
 <p><strong>示例：</strong></p>
-<pre class="line-numbers language-C++"><code class="language-C++">//1. 值传递
+<pre class="line-numbers language-C++"><code class="language-C++">//1. 值传递，形参不会修饰实参
 void mySwap01(int a, int b) {
     int temp = a;
     a = b;
     b = temp;
 }
 
-//2. 地址传递
+//2. 地址传递，形参会修饰实参
 void mySwap02(int* a, int* b) {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 
-//3. 引用传递
+//3. 引用传递，形参会修饰实参
 void mySwap03(int& a, int& b) {
     int temp = a;
     a = b;
@@ -784,13 +784,13 @@ int main() {
 <p><strong>示例：</strong></p>
 <pre class="line-numbers language-C++"><code class="language-C++">//返回局部变量引用
 int& test01() {
-    int a = 10; //局部变量
+    int a = 10; //局部变量存放在四区中的栈区
     return a;
 }
 
 //返回静态变量引用
 int& test02() {
-    static int a = 20;
+    static int a = 20;    //静态变量,存放在全局区,全局区上的数据在程序结束后系统释放
     return a;
 }
 
@@ -798,18 +798,18 @@ int main() {
 
     //不能返回局部变量的引用
     int& ref = test01();
-    cout << "ref = " << ref << endl;
-    cout << "ref = " << ref << endl;
+    cout << "ref = " << ref << endl;    //第一次结果正确,是因为编译器做了保留
+    cout << "ref = " << ref << endl;    //第二次结果错误,因为a的内存己经释放
 
     //如果函数做左值，那么必须返回引用
     int& ref2 = test02();
-    cout << "ref2 = " << ref2 << endl;
-    cout << "ref2 = " << ref2 << endl;
+    cout << "ref2 = " << ref2 << endl;    //:10
+    cout << "ref2 = " << ref2 << endl;    //:10
 
     test02() = 1000;
 
-    cout << "ref2 = " << ref2 << endl;
-    cout << "ref2 = " << ref2 << endl;
+    cout << "ref2 = " << ref2 << endl;    //:1000
+    cout << "ref2 = " << ref2 << endl;    //:1000
 
     system("pause");
 
@@ -837,11 +837,11 @@ int main(){
     return 0;
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>结论：C++推荐用引用技术，因为语法方便，引用本质是指针常量，但是所有的指针操作编译器都帮我们做了</p>
+<p>结论：C++推荐用引用技术，因为语法方便，引用本质是<code>指针常量</code>，但是所有的指针操作编译器都帮我们做了</p>
 <h3 id="2-6-常量引用"><a href="#2-6-常量引用" class="headerlink" title="2.6 常量引用"></a>2.6 常量引用</h3><p><strong>作用：</strong>常量引用主要用来修饰形参，防止误操作</p>
 <p>在函数形参列表中，可以加==const修饰形参==，防止形参改变实参</p>
 <p><strong>示例：</strong></p>
-<pre class="line-numbers language-C++"><code class="language-C++">//引用使用的场景，通常用来修饰形参
+<pre class="line-numbers language-C++"><code class="language-C++">//引用使用的场景，通常用来修饰形参，放在误操作
 void showValue(const int& v) {
     //v += 10;
     cout << v << endl;
@@ -872,6 +872,7 @@ int main() {
     return a + b + c;
 }
 
+//注意事项
 //1. 如果某个位置参数有默认值，那么从这个位置往后，从左向右，必须都要有默认值
 //2. 如果函数声明有默认值，函数实现的时候就不能有默认参数
 int func2(int a = 10, int b = 10);
@@ -881,14 +882,14 @@ int func2(int a, int b) {
 
 int main() {
 
-    cout << "ret = " << func(20, 20) << endl;
-    cout << "ret = " << func(100) << endl;
+    cout << "ret = " << func(20, 20) << endl;    //:50
+    cout << "ret = " << func(100) << endl;        //:120
 
     system("pause");
 
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-2-函数占位参数"><a href="#3-2-函数占位参数" class="headerlink" title="3.2 函数占位参数"></a>3.2 函数占位参数</h3><p>C++中函数的形参列表里可以有占位参数，用来做占位，调用函数时必须填补该位置</p>
 <p><strong>语法：</strong> <code>返回值类型 函数名 (数据类型){}</code></p>
 <p>在现阶段函数的占位参数存在意义不大，但是后面的课程中会用到该技术</p>
@@ -3873,7 +3874,6 @@ void test01()
 </li>
 <li><p>关闭文件</p>
 <p>ofs.close();</p>
-<p>​</p>
 </li>
 </ol>
 <p>文件打开方式：</p>
@@ -4138,7 +4138,7 @@ int main() {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/10/24/c-he-xin-bian-cheng/">http://example.com/2021/10/24/c-he-xin-bian-cheng/</a>
+                    <a href="http://example.com/2021/10/27/c-he-xin-bian-cheng/">http://example.com/2021/10/27/c-he-xin-bian-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -4323,33 +4323,6 @@ int main() {
             
         </div>
     </div>
-
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: '',
-        owner: '',
-        admin: null,
-        id: '2021-10-24T22-29-08',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
 
     
 
@@ -4610,8 +4583,8 @@ int main() {
 <script>
     new Valine({
         el: '#vcomments',
-        appId: '',
-        appKey: '',
+        appId: 'RI3egRclleOHHB1LsfdoUakd-gzGzoHsz',
+        appKey: 'H9wmIhcjdndlbjsdvwKY07yB',
         notify: 'false' === 'true',
         verify: 'false' === 'true',
         visitor: 'true' === 'true',
@@ -4638,11 +4611,12 @@ int main() {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/10/25/c-cheng-xu-she-ji/">
+                <a href="/2021/10/27/c-he-xin-bian-cheng/">
                     <div class="card-image">
                         
                         
@@ -4658,9 +4632,9 @@ int main() {
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -4669,6 +4643,7 @@ int main() {
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -4679,13 +4654,13 @@ int main() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/22/hello-world/">
+                <a href="/2021/10/26/hexo-bo-ke-matery-zhu-ti-mei-hua-zhi-kan-ban-niang-neng-shuo-hua-neng-huan-zhuang-qie-huan-xiao-ren/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -4696,7 +4671,7 @@ int main() {
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
                             </span>
                         <span class="publish-author">
                             
@@ -5122,8 +5097,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

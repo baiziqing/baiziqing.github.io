@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="博客制作,个人经验分享,嵌入式人,工智能等,Linux,C语言,c++,arm,qt">
+    <meta name="keywords" content="c++程序设计, 博客制作,个人经验分享,嵌入式人,工智能等,Linux,C语言,c++,arm,qt">
     <meta name="description" content="
 C++程序设计一、从 C 到 C++1.1、C++简介C语言是面向过程、C++是向对象的编程语言
 C++是C的升级、面向对象
@@ -20,7 +20,7 @@ C++是C的升级、面向对象
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>白子卿</title>
+    <title>c++程序设计 | 白子卿</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -327,12 +327,12 @@ C++是C的升级、面向对象
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/article/c++.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">c++程序设计</h1>
                 </div>
             </div>
         </div>
@@ -467,7 +467,7 @@ C++是C的升级、面向对象
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-27
+                    2021-10-29
                 </div>
                 
 
@@ -1912,9 +1912,1242 @@ cout:
 };
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="7-2-2、权限访问符"><a href="#7-2-2、权限访问符" class="headerlink" title="7.2.2、权限访问符"></a>7.2.2、权限访问符</h4><p>c:表示基类的 public/ protected成员可以被子类访问,通过子类对象可访问基类的 oublic成员<br>tected/private:表示基类的 public/ protected.减员可以被子类访问,通过子类对象不能访问基类</p>
-<pre class="line-numbers language-c++"><code class="language-c++">1
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="7-3、派生类的构造及析构"><a href="#7-3、派生类的构造及析构" class="headerlink" title="7.3、派生类的构造及析构"></a>7.3、派生类的构造及析构</h3><h3 id="7-4、is-a关系"><a href="#7-4、is-a关系" class="headerlink" title="7.4、is-a关系"></a>7.4、is-a关系</h3><h3 id="7-5、多重继承"><a href="#7-5、多重继承" class="headerlink" title="7.5、多重继承"></a>7.5、多重继承</h3><h2 id="八、多态"><a href="#八、多态" class="headerlink" title="八、多态"></a>八、多态</h2><h2 id="九、异常"><a href="#九、异常" class="headerlink" title="九、异常"></a>九、异常</h2><h2 id="十、转换函数"><a href="#十、转换函数" class="headerlink" title="十、转换函数"></a>十、转换函数</h2><h2 id="十一、智能指钍"><a href="#十一、智能指钍" class="headerlink" title="十一、智能指钍"></a>十一、智能指钍</h2><h2 id="十二、STL"><a href="#十二、STL" class="headerlink" title="十二、STL"></a>十二、STL</h2>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+
+#define pri() cout <<__func__<<"line:"<<__LINE__<<endl;
+class Father{
+public:
+    double money; 
+    void show() { pri(); }
+protected:
+    void  setMoney(double m)
+    {
+        money = m;
+    }
+private:
+    int age; 
+};
+
+//派生
+class Son : public Father{    //公有继承
+public:
+    void showMoney()
+    {
+        money = 120;  //通过子类内部可以识别并访问 公有成员
+        setMoney(10000);//通过子类内部可以识别并访问 保护成员
+        //age = 18;  //error： 因为 age 是父类私有成员，能继承，但是不能访问修改
+    }
+protected:
+    int sex; 
+private:
+    char idCard[18]; 
+};
+
+int main()
+{
+    /*
+    Father fa;
+    fa.setMoney(40000); 
+    cout << fa.money << endl;
+*/
+    Son obj; //
+    obj.money = 20000; //通过子类外部对象访问 父类 继承下来的公有成员于
+    cout << obj.money <<endl;
+  //  cout << fa.money << endl;  //父子类  money 是彼此独立 不是共享
+    obj.show(); //
+    // obj.setMoney(666);// error:通过子类外部对象访问  父类 的保护成员，不能修改
+    // obj.age = 18;  //error:通过子类外部对象访问 可以识别到父类私有成员 但是不能访问修改
+    //
+    return 0;
+}
+/*通过 Father 派生出一个 Son 类，这就算类的派生，Son 类 继承下来的公有成员于 Father类
+ *
+ * 公有继承：
+ *   1、派生类继承基类的 公有、保护、私有成员
+ *   2、在类的外部： 通过派生类对象访问公有成员（因为派生继承过来的属性、行为、权限不变）
+ *   3、在类内部：通过成员函数可以访问 基类的公有和保护成员
+ *   4、私有成员不管类内部、外部都不能访问
+ */
+
+/*
+cout:
+20000
+showline:8
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">/*子类父类重名*/    
+#include <iostream>
+using namespace std;
+class Father{
+public:
+    double money;
+    void show(){
+        cout << __func__<<__LINE__<<endl;
+    }
+};
+
+class Son : public Father {
+public:
+    double money;
+    void show(){
+        cout << __func__<<__LINE__<<endl;
+    }
+};
+
+int main()
+{
+    Son obj;
+    obj.money = 10000;
+   // obj.show1();  //
+    obj.show();  //
+    
+    obj.Father::money = 20000;
+    obj.Father::show();
+
+    return 0;
+}
+
+/*公有继承时，派生类成员将会隐藏 基类的同名成员
+ * 即：不能通过派生类对象访问基类成员
+ *若要访问：可以通过:: 访问被隐藏的基类成员
+ *
+ *隐藏：作用域不同 函数名相同  参数  返回值可以不同的情况 会是隐藏
+ */
+
+/*
+cout:
+show15
+show7
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">/*保护继承*/
+#include <iostream>
+using namespace std;
+class Father{
+public:
+    double money;
+    void show(){ ; }
+protected:
+    void setMoney(double m)
+    {
+        money = m;
+    }
+private:
+    int age;
+};
+class Son: protected Father{   //保护继承 和私有继承 都不能通过子类外部 对象访问，但是可以通过类内部访问，
+//class Son: private  Father{    //如果变为 私有继承,那么 该 Son 被再次继承时，不能访问 任何Father 成员成员
+public:
+    int showMoney()
+    {
+        money = 20;  //公有成员 可以通过类内部访问
+        setMoney(10000);  //保护 可以通过类内部访问
+        //age =18;    // 私有 不能访问
+    }
+protected:
+    int x;
+private:
+    char idCard[18];
+};
+
+class Son2 :public  Son{
+public:
+    int showMoney()
+    {
+        money = 20;  //公有成员 可以通过类内部访问
+        setMoney(10000);  //保护 可以通过类内部访问
+        //age =18;    // 私有 不能访问
+    }
+
+
+};
+
+
+int main()
+{
+    Son obj;
+    #if 0
+    obj.money = 16000;   //通过类的外部对象都不能访问
+    obj.show();
+
+    obj.setMoney(20000);
+
+    obj.age = 18;
+    #endif 
+    return 0;
+}
+
+/*
+cout:
+
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>有三种继承方式:公有继承、保护继承、私有继承。<br>派生类访问基类的成员的权限如下表所示:</p>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/f50a613f5uc29527e90c9f95f410d0fa?fid=1789975539-250528-426817568763585&amp;time=1635303600&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-ec/XTTkcvW8viNLRR77HutZJ+3k=&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=28317448917166343&amp;dp-callid=0&amp;file_type=0&amp;size=c10000_u10000&amp;quality=90&amp;vuk=-&amp;ft=video"></p>
+<h3 id="7-3、派生类的构造及析构"><a href="#7-3、派生类的构造及析构" class="headerlink" title="7.3、派生类的构造及析构"></a>7.3、派生类的构造及析构</h3><p>派生类不能继承基类的构造jc、析构函数。<br>派生类有自己的构造、析构函数。<br>如果基类构造函数有参数,在从派生类的构造函数把参数传递给基类的构造函数。.<br>派生类名∷构造函数名(参数列表):基类名(参数列表) 。</p>
+<ul>
+<li>继承时，构造顺序：先基类构造，再派生构造<br>析构顺序：先派生类析构，再基类构造</li>
+<li>包含对象成员的派生类和基类构造顺序：<br>先 基类构造，再对象成员构造，最后派生类构造</li>
+<li>析构顺序与构造顺序相反</li>
+</ul>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+#define pri() cout << __func__ << "line:"<<__LINE__<< endl;
+
+class Base{
+public:
+    Base(){pri(); };
+    Base(int x):x(x) {pri();}
+    ~Base(){pri(); }
+
+    int x;
+};
+
+class Subclass: public Base{
+public:
+    //Subclass (int x) :Base(x), a(x)  // 显示调用
+    Subclass (int x) : a(x)   //隐式调用默认构造
+    {
+        pri();
+    }
+    ~Subclass(){pri(); }
+private:
+    int a;
+};
+int main()
+{
+    Base b(3);
+    Subclass s(5);
+
+    cout << s.x <<endl;
+    return 0;
+}
+
+/*    ★★★ 
+ *     继承中，定义 派生类对象时，基类和派生类的顺序：
+ *   构造：先基类构造、再派生类构造（实例化对象时，要先实例化基类）
+ *   析构：和构造顺序相反： 先析构派生类 再析构基类
+ *  
+ *   构造的顺序实现方法：
+ *      1、在派生类构造函数初始化列表 中，隐式调用基类 的默认构造
+ *      2、如果 基类只有带参的构造函数，那么派生类构造函数初始化列表必须显示调用基类构造
+ *      3、当基类默认构造函数和带参构造函数同时出现时，派生类中只会调用带参构造，不会默认构造
+ *
+ */
+
+ /*
+cout:
+Baseline:8
+Baseline:7
+Subclassline:19
+0
+~Subclassline:21
+~Baseline:9
+~Baseline:9
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>注意：类体中显示说明，带参数的构造函数，那么无参数的默认构造 不会自动生成</strong> </p>
+<ul>
+<li>派生类构造函数参数初始化列表中，隐式调用基类 默认构造（无参数的构造函数）</li>
+<li>如果基类出现带参数构造函数，必须在派生类的构造函数参数初始化列表中，显示调用 基类带参构造函数</li>
+<li>如果派生对象成员的构造函数带参数，必须在派生类的构造函数参数初始化列表中，为对象成员这个变量赋初值。</li>
+</ul>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+#define pri() cout << __func__<<"line:"<<__LINE__<<endl;
+class A{
+public:
+   // A(){pri();}
+    A(int x) {pri();}
+    ~A(){pri();}
+};
+
+class Base{  //基类
+public:
+    Base (int x){pri();}
+    ~Base(){pri();}
+
+};
+
+class subclass:public Base{  //派生类
+public:
+    subclass():Base(5), x(7), obj(6)
+    {
+        pri();
+    }
+    ~subclass(){pri();}
+private:
+    int x;  
+    A obj; //成员对象，定义时，系统暂时不会自动调用A的构造函数来初始化obj对
+            
+};
+
+int main()
+{
+    subclass s;  //派生对象
+    return 0;
+}
+
+/*含有对象成员构造顺序：  
+ * 构造顺序： 先基类  再 A 对象 再 派生类  
+ *
+ * 析构顺序：和构造顺序相反
+ *
+ */
+
+/*
+cout:
+Baseline:13
+Aline:7
+subclassline:22
+~subclassline:24
+~Aline:8
+~Baseline:14
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="7-4、is-a关系"><a href="#7-4、is-a关系" class="headerlink" title="7.4、is-a关系"></a>7.4、is-a关系</h3><p><strong>is-a关系</strong><br>is-a 一般是继承关系，has-a一般是组合。</p>
+<ul>
+<li>is-a 派生类对象也是一个基类对象，基类对象能够做的操作，派生类也可以</li>
+<li>has-a 是一种聚合，表示一个类中有另一个类的对象。</li>
+</ul>
+<h3 id="7-5、多重继承"><a href="#7-5、多重继承" class="headerlink" title="7.5、多重继承"></a>7.5、多重继承</h3><p> <strong>多重继承的路径二义性：</strong><br>解决方式，作用域访问符 和 设置虚基类（虚继承（继承时有 virtual）共同的基类叫虚基类 </p>
+<pre class="line-numbers language-c++"><code class="language-c++">/*向上向下隐式转换*/
+#include <iostream>
+using namespace std;
+
+class Base{
+public:
+    Base (int x ):x(x)   //这里的 第一次  x = 10 
+    { 
+        cout<< "base" <<__LINE__<<endl; 
+    }
+    ~Base(){  
+    
+        cout<< "~Base" <<__LINE__<<endl; 
+    }
+    int x;   
+};
+class Subclass:public Base{
+public:
+    Subclass(int x, int y): Base(x),y(y){    //初始化 base 的x 为 1 ， subcalss 的y 为 4
+    
+        cout<< "Subclass" <<__LINE__<<endl; 
+    }
+    ~Subclass(){
+        cout<< "~Subclass" <<__LINE__<<endl; 
+    }
+        int y;
+};
+
+int main()
+{
+    Subclass s(1,4);  //派生类对象
+    #if 0
+    Base b(10);       //基类对象
+    cout << b.x << endl;  //结果应该是10
+    
+    b = s;  // 将 派生类的基类部分重新赋值给 基类对象b， 所以这时候，b对象的数据被 s的基类覆盖了，后边打印b.x 
+            //就不再是 10 而是 1
+            //c++类型兼容规则：
+            //公有继承默认小范围转大范围（向上隐士转换）:将派生类中基类的数据进行赋值，派生类自己的部分丢弃
+   
+    cout << b.x << endl;  //x  为 1
+
+    //cout << s.x << endl;
+   // cout << s.y << endl;
+
+   //s  = b;    //基类到 派生的赋值   向下隐式转换   此刻不行
+#endif 
+
+    Subclass *q = new Subclass(7,8);
+    Base *p   = new  Base(9);
+
+    p = q; 
+    cout << p->x << endl;
+    //delete q;
+    //q = NULL; 
+   // delete p;
+   // p = NULL; 
+    //
+
+    Base *m  = new Subclass(11, 22);
+    Base &a = s; 
+
+   cout <<  m->x <<endl;
+   cout <<  a.x <<endl;
+
+    return 0;
+}
+
+/*
+cout:
+base8
+Subclass20
+base8
+Subclass20
+base8
+7
+base8
+Subclass20
+11
+1
+~Subclass23
+~Base12
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">/*狼人*/
+#include <iostream>
+using namespace std;
+#define pri()   cout << __func__<<__LINE__<<endl;
+class Man{
+public:
+    Man(){pri();}
+    ~Man(){pri();}
+    int x;
+};
+
+class Wolf{
+public:
+    Wolf(){pri();}
+    ~Wolf(){pri();}
+    int x;
+};
+
+class WolfMan:public Wolf, public Man{
+public:
+    WolfMan(){pri();}
+    ~WolfMan(){pri();}
+};
+
+int main()
+{
+    WolfMan wm;
+    //wm.x  = 100;  //error :有歧义 （x 有二义性）,解决方式 ：作用域 访问符 ：：
+
+    wm.Wolf::x = 12;
+    wm.Man::x  = 13;
+    return 0;
+}
+/*多重继承构造顺序：
+ *  从左边起第一个继承的基类开始构造，再到第二个  再到派生类构造
+ *  析构顺序：相反
+ */
+
+/*
+cout:
+Wolf13
+Man6
+WolfMan20
+~WolfMan21
+~Man7
+~Wolf14
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">虚基类
+#include <iostream>
+using namespace std;
+#define pri()   cout << __func__<<__LINE__<<endl;
+class Animal{
+public:
+    Animal(){pri();}
+    ~Animal(){pri();}
+    int x;
+    
+};
+
+class Man: public virtual  Animal {  //在继承的时候 加 virtual声明 为虚继承
+public:
+    Man(){pri();}
+    ~Man(){pri();}
+};
+
+class Wolf :public virtual Animal{
+public:
+    Wolf(){pri();}
+    ~Wolf(){pri();}
+};
+
+class WolfMan:public Wolf, public Man{
+public:
+    WolfMan(){pri();}
+    ~WolfMan(){pri();}
+};
+
+int main()
+{
+    WolfMan wm;
+    wm.x  = 100;  //error :有歧义 （x 有二义性）,解决方式 ：作用域 访问符 ：：
+    cout << wm.x <<endl;
+
+    wm.Wolf::x = 12;
+    cout << wm.x <<endl;
+    wm.Man::x  = 13;
+    cout << wm.x <<endl;
+    return 0;
+}
+/*多重继承构造顺序：
+ *  从左边起第一个继承的基类开始构造，再到第二个  再到派生类构造
+ *  析构顺序：相反
+ */
+
+/*
+cout:
+Animal6
+Wolf20
+Man14
+WolfMan26
+100
+12
+13
+~WolfMan27
+~Man15
+~Wolf21
+~Animal7
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="八、多态"><a href="#八、多态" class="headerlink" title="八、多态"></a>八、多态</h2><h3 id="8-1、什么是多态"><a href="#8-1、什么是多态" class="headerlink" title="8.1、什么是多态"></a>8.1、什么是多态</h3><p>即多态为: 一种方法,多种实现</p>
+<p>多态（Polymorphism）按字面的意思就是“多种状态”，简单地概括为“一个接口，多种方法”，程序在运行时才决定调用的函数，是面向对象编程领域的核心概念。<br>即多态为：<code>一种方法，多种实现</code>；<br>多态性是将接口与实现进行分离；用形象的语言来解释就是实现以共同的方法，但因个体差异，而采用不同的策略。<br>在面向对象编程（OOP）的主要特征<br>            封装wrap：实现细节隐藏，使得代码模块化。把成员数据和成员函数封装起来，通过公共的成员接口进行成员数据的操作。<br>            继承inheritance：扩展已存在的代码，目的是为了代码重用<br>            多态polymorphism：目的是为了接口重用。也就是说，不论传递过来的究竟是哪个类的对象，函数都能够通过同一个接口调用到适应各自对象的实现方法。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+#define pri() cout << __LINE__<<endl;
+class Base{
+public:
+    //void prnmsg(){pri();}
+    virtual  void prnmsg(){pri();}  //加virtual 关键字声明 为虚函数， 实现多态
+};
+
+class Subclass:public Base{  
+public:
+    void prnmsg(){pri();}
+};
+
+
+
+void test(Base *obj)  //接口  :多态：一个接口 实现不同的调用方法 
+{
+    obj->prnmsg();
+}
+
+int main()
+{
+    Base b;  // 基类对象
+    Subclass s;// 派生类对象
+    test(&b);  //  调基类     Base obj = b
+    test(&s);   //调派生类    Base obj = s  //向上隐式转换   还是 Base 
+    /*会不会实现传什么调什么
+     *在这里  如果不用多态 不能实现传什么调什么  始终调基类
+     */
+
+   // s.prnmsg();  //派生类调用
+    //s.Base::prnmsg();
+
+    return 0;
+}
+
+/*
+cout:
+7
+12
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="8-2、虚函数"><a href="#8-2、虚函数" class="headerlink" title="8.2、虚函数"></a>8.2、虚函数</h3><p>有时候,希望子类和基类有相同的方法,但是行为却有所不同,这就是多<br>文里就引入了虚函数的概念。</p>
+<p>有时候，希望子类和基类有相同的方法，但是行为却有所不同，这就是多态。这里就引入了虚函数的概念。<br>注意：简单继承，is-a的关系不是多态；另外函数重载，一般应该是行为类似，使用方法不同，也不是多态。<br>简单地说，用virtual修饰的成员函数，就是虚函数。虚函数的作用就是实现多态性（Polymorphism）。多态性是将接口与实现进行分离；用形象的语言来解释就是实现以共同的方法，但因个体差异，而采用不同的策略。<br>虚函数的限制如下：<br>            A、非类的成员函数不能定义为虚函数<br>            B、类的静态成员函数不能定义为虚函数<br>            C、构造函数不能定义为虚函数，但可以将析构函数定义为虚函数<br>            D、只需要在声明函数的类体中使用关键字“virtual”将函数声明为虚函数，而定义函数时不需要使用关键字“virtual”。<br>            E、当将基类中的某一成员函数声明为虚函数后，派生类中的同名函数（函数名相同、参数列表完全一致、返回值类型相关）自动成为虚函数。</p>
+<h4 id="8-2-1、虚函数语法"><a href="#8-2-1、虚函数语法" class="headerlink" title="8.2.1、虚函数语法"></a>8.2.1、虚函数语法</h4><blockquote>
+<p>class 类名{<br>        public:<br>            virtual 返回值类型 函数名1(参数列表)<br>            {    </p>
+<p>​            }</p>
+<p>​            …</p>
+<p>​        virtual 返回值类型 函数名n(参数列表)<br>​            {</p>
+<p>​            }</p>
+<p>};            </p>
+</blockquote>
+<p>注意：（重点）<br>        虚函数是在运行时根据对象决定调用的函数；</p>
+<h3 id="8-3、覆盖、重载、隐藏"><a href="#8-3、覆盖、重载、隐藏" class="headerlink" title="8.3、覆盖、重载、隐藏"></a>8.3、覆盖、重载、隐藏</h3><p><img src="D:\ZiyuBlogs\source_posts\C++程序设计.assets\1635388364929.png" alt="1635388364929"></p>
+<h3 id="8-4、动态联编-动态链接"><a href="#8-4、动态联编-动态链接" class="headerlink" title="8.4、动态联编(动态链接)"></a>8.4、动态联编(动态链接)</h3><h4 id="8-4-1、联编-链接"><a href="#8-4-1、联编-链接" class="headerlink" title="8.4.1、联编(链接)"></a>8.4.1、联编(链接)</h4><p>就是将模块或者函数合并在一起生成可执行代码的处理过程。按照联编所进行的阶段不同，可分为两种不同的联编方法：静态联编和动态联编。<br>静态联编（静态链接）<br>是指在编译阶段就将函数实现和函数调用关联起来，因此静态联编也叫早绑定。<br>动态联编（动态链接）<br>是指在程序执行的时候才将函数实现和函数调用关联，因此也叫运行时绑定或者晚绑定。<br>C++中一般情况下联编也是静态联编，但是一旦涉及到多态和虚拟函数就必须要使用动态联编了。<br>重载只是一种语言特性，编译器根据函数不同的参数表，把同名函数区分开来，属于静态联编，与多态无关。引用一句Bruce Eckel的话：“不要犯傻，如果它不是晚绑定，它就不是多态。”</p>
+<h4 id="8-4-2、静态联编-静态链接"><a href="#8-4-2、静态联编-静态链接" class="headerlink" title="8.4.2、静态联编(静态链接)"></a>8.4.2、静态联编(静态链接)</h4><h4 id="8-4-3、动态联编-动态链接"><a href="#8-4-3、动态联编-动态链接" class="headerlink" title="8.4.3、动态联编(动态链接)"></a>8.4.3、动态联编(动态链接)</h4><p><img src="D:\ZiyuBlogs\source_posts\C++程序设计.assets\1635391644517.png" alt="1635391644517"></p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include<iostream>
+using namespace std;
+
+class Base{
+public:
+    Base(int x, int b):x(x), b(b){}  //构造函数 参数初始化列表 给成员变量 付初始值
+    virtual void func1(){
+        cout << "line: " << __LINE__<<endl;   //虚函数表 成员 func 1 func 2    
+    }
+    virtual void func2(){
+        cout << "line: " << __LINE__<<endl;
+    }
+    int getX(){ return x; }
+private:
+    int x;    //成员变量
+    int b;
+    //static int c;  //不占 大小
+};
+
+typedef void (*FUNC)(void);   //函数指针 
+
+int main()
+{
+    Base obj(10, 20); //定义基类对象  x 和 b  为 2 ，3 
+    cout << "x: " << *((int *)&obj+1) << endl;    //
+    cout << "b: " << *((int *)&obj+2) << endl;
+#if 0    
+    FUNC p = (FUNC) *(int *) (*((int *)&obj));
+    p();
+    p = (FUNC) *( (int *) (*((int *)&obj))+1);
+    p();
+#else
+    
+    int vtbl = *(int *)&obj;   //obj的头4字节内容  eg：0x12315  这个数据只是16进制数值  
+    FUNC p = (FUNC) *(int *)vtbl;  //将16进制数值强传为 地址 然后取头4个字节内容， 通过 函数指针强转 后调用得到 调用虚函数func1
+            // vtbl -> 0x1234           
+    p();  //得到 调用虚函数  func 1说明 可以通过虚函数表首地址 第一个成员就算func1的入口地址
+    p = (FUNC) *((int *)vtbl+1);  //下一个能的得到 func2的调用 更加确定我结论的正确性
+    p();   
+
+    cout<< sizeof(obj)<<endl;
+#endif
+}
+
+/*
+cout:
+7
+12
+*/  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="D:\ZiyuBlogs\source_posts\C++程序设计.assets\1635393220060.png" alt="1635393220060"></p>
+<h3 id="8-5、抽象类"><a href="#8-5、抽象类" class="headerlink" title="8.5、抽象类"></a>8.5、抽象类</h3><p>含有纯虚函数的类就是抽象类。<br>抽象类没有完整的信息,只能是派生类的基类<br>抽象类不能有实例,不能有静态成员<br>派生类应该实现抽象类的所有方法 </p>
+<pre class="line-numbers language-c++"><code class="language-c++">/*纯虚函数*/
+#include <iostream>
+using namespace std;
+
+class Base{
+public:
+   //virtual void  prnmsg() ;  //虚函数
+   virtual void  prnmsg() = 0;  //纯虚函数(包含纯虚函数的累就是 抽象类)
+protected:
+    int y;
+private:
+    int x;
+};
+
+class Subclass:public Base{
+public:
+    void prnmsg(){
+        cout <<__LINE__<<endl; 
+        //x = 10; 
+        y = 20;
+        cout << y << endl;
+    }
+};
+
+void test (Base &obj)
+{
+    obj.prnmsg();
+}
+
+int main()
+{
+    //Base obj;   //抽象类 不能有具体的实例 可以通过派生类的实现
+    Subclass obj; 
+    test(obj);
+    return 0;
+}
+
+/*
+cout:
+x: 10
+b: 20
+line: 8
+line: 11
+12
+*/ 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="8-6、虚继承"><a href="#8-6、虚继承" class="headerlink" title="8.6、虚继承"></a>8.6、虚继承</h3><p>虚继承解决多重继承产生的二义性；</p>
+<h3 id="8-7、虚析构函数"><a href="#8-7、虚析构函数" class="headerlink" title="8.7、虚析构函数"></a>8.7、虚析构函数</h3><p>一般将析构函数指定为虚的，主要是避免空间回收不完整；</p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+#define pri() cout<<__func__<<__LINE__<<endl;
+
+class Base{
+public:
+    Base() {pri();}
+    //~Base(){pri();}
+   virtual  ~Base(){pri();} //声明一个虚析构函数.作用：解决资源回收不完整的情况
+private:
+    int x;
+};
+class Subclass:public Base{
+public:
+    Subclass(){pri();}
+    ~Subclass(){pri();}
+private:
+    int y;
+};
+int main()
+{
+    Base *p = new Subclass; // 
+    cout<< sizeof(p) <<endl;
+
+    delete p; 
+
+    return 0;
+}
+
+/*
+Base7
+Subclass15
+4
+~Subclass16
+~Base9
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="8-8、限制构造函数"><a href="#8-8、限制构造函数" class="headerlink" title="8.8、限制构造函数"></a>8.8、限制构造函数</h3><p>1&gt; 含义<br>        指 构造函数的权限不是publlic,而是protected/private<br>2&gt;友元函数解决限制构造函数不能构造对象的问题</p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+
+#define pri() cout<<__func__<<__LINE__<<endl;
+
+class Base{
+protected:
+    Base(){pri();}
+    ~Base(){pri();}
+public:
+    void prnmsg()
+    {
+        pri();
+    }
+    friend Base *getobj();
+    friend void deleteobj(Base *p)
+    {
+        delete p;
+    }
+};
+
+Base *getobj()
+{
+    return (new Base);
+} 
+
+class Subclass:public Base{
+public:
+    Subclass(){pri();}
+    ~Subclass(){pri();}
+};
+
+int main()
+{
+#if 0
+    Subclass obj;
+    obj.prnmsg();
+
+#endif    
+    Base *p = getobj();
+    p->prnmsg();
+    deleteobj(p);
+
+    return 0;
+}
+
+/*
+cout:
+Base8
+prnmsg13
+~Base9
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="8-9、类的大小"><a href="#8-9、类的大小" class="headerlink" title="8.9、类的大小"></a>8.9、类的大小</h3><pre class="line-numbers language-c++"><code class="language-c++">/*求类的大小*/
+#include <iostream>
+using namespace std;
+class Base{
+
+};
+class Demo{
+    char buf[3];  // 4  4
+    short a;      // 4  2
+};
+class Demo1{
+    double buf[3];  // 24
+    char a;         //  
+    char b;
+    //char c;
+    int f;
+    short d;
+};
+class Demo2{
+    char a;
+    double s; 
+    int c;
+    short b;
+};
+
+class Demo3{
+  long buf[3];  // 12
+    char str[9]; // 12
+    short bu[5]; 
+    double a;  //8
+};
+
+class Demo4{
+    long buf[3];  // 12
+    char str[9]; // 12
+    double a;  //8
+    void setval();   
+};
+class Demo5{
+    virtual void setval(int x){}   // 4   4
+    virtual void setval2(int x){}  // 0   4
+    void setval3(int x){}          // 0   0
+    int x;
+};
+
+class Demo6{
+    int b;                 // 8   12  
+    static int a;
+    friend void get(){}
+    virtual void set(){}
+    int x;
+};
+
+int Demo6 ::a=13;
+
+class Demo7:public Demo6{
+    
+};
+
+class Demo8:public Demo6, public Demo5{  //12   8   
+    int x;
+
+    virtual void fun(){}
+};
+class Demo9:public virtual  Demo6, public virtual  Demo5{  //12   8   
+    int x;
+    int b;
+   // virtual void fun(){}
+};
+
+
+int main()
+{
+    cout << "sizeof(Base)=" << sizeof(Base) << endl;
+    cout << "sizeof(Demo)=" << sizeof(Demo) << endl;
+    cout << "sizeof(Demo1)=" << sizeof(Demo1) << endl;
+    cout << "sizeof(Demo2)=" << sizeof(Demo2) << endl;
+    cout << "sizeof(Demo3)=" << sizeof(Demo3) << endl;
+    cout << "sizeof(Demo4)=" << sizeof(Demo4) << endl;
+    cout << "sizeof(Demo5)=" << sizeof(Demo5) << endl;
+    cout << "sizeof(Demo6)=" << sizeof(Demo6) << endl;
+    cout << "sizeof(Demo7)=" << sizeof(Demo7) << endl;
+    cout << "sizeof(Demo8)=" << sizeof(Demo8) << endl;
+    cout << "sizeof(Demo9)=" << sizeof(Demo9) << endl;
+    return 0;
+}
+
+/*计算类的空间大小 ：类似结构体按字节对齐
+ *  1、空类 占 1 个字节  （站位符）
+ *  2、成员函数 、静态成员、 友元函数 占 0字节
+ *  3、虚函数 占 4字节 （仅虚函数表占4字节）
+ *  4、非静态成员 满足字节序对齐
+ */
+
+/*
+sizeof(Base)=1
+sizeof(Demo)=6
+sizeof(Demo1)=36
+sizeof(Demo2)=20
+sizeof(Demo3)=40
+sizeof(Demo4)=32
+sizeof(Demo5)=8
+sizeof(Demo6)=12
+sizeof(Demo7)=12
+sizeof(Demo8)=24
+sizeof(Demo9)=32
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="九、异常"><a href="#九、异常" class="headerlink" title="九、异常"></a>九、异常</h2><h3 id="9-1、什么是异常"><a href="#9-1、什么是异常" class="headerlink" title="9.1、什么是异常"></a>9.1、什么是异常</h3><ul>
+<li>什么是异常：异常在一种容错机制，是一种错误处理系统。</li>
+<li>为什么要有异常：保证软件系统运行的稳定性与健状性</li>
+<li>C++的异常处理机制有3部分组成try(检查)→ throw(抛出)&gt; catch(捕获)</li>
+</ul>
+<blockquote>
+<p> try{<br>            //检查语句<br>            if(错误){<br>            throw异常<br>        }<br>}    catch(异常类型1){<br>    进行异常处理的语句1<br>}<br>… </p>
+</blockquote>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <stdexcept>  //标准异常的头文件
+using namespace std;
+
+/*c++ 中默认每一个函数都会抛出异常 除非特殊请说明
+ * 如果要提示抛出什么类型的异常，那么就必须在函数的声明处 用 throw （。。）说明
+ *
+ *如果 需要说明该函数没有异常，是安全的函数，则声明定义时，就可以用throw（） 或者
+ noexecpt来说明
+ *
+ */
+
+int fun(int ,int) throw(invalid_argument);   //告知 编译器或用户 该函数会抛出什么类型的异常
+
+int fun(int x ,int y) throw(invalid_argument)
+{
+    if(!y)  //检查错误
+        throw invalid_argument("参数有误：y==0"); //抛出异常并携带错误信息（实质是抛出一个类对象）
+    else
+        return x/y;
+
+    cout << "------------";
+}
+
+int main()
+{
+    int a, b;
+    cin >> a >> b; 
+    try{   //检查错误
+
+       cout<<  fun(a,b) << endl;
+   // }catch ( const invalid_argument &err ){  //捕获异常、定义一个异常类型的对象来接收
+                                           //通过const 为常量取别名 为 &err 
+        //异常处理（这里是没有自定义处理方式，默认交由上级处理）
+    }catch (  invalid_argument err ){  //捕获异常、定义一个异常类型的对象来接收  不引用 定义同类类型接收
+        cout << err.what() <<endl;
+    }
+
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="9-2、使用标准异常"><a href="#9-2、使用标准异常" class="headerlink" title="9.2、使用标准异常"></a>9.2、使用标准异常</h3><p>C++ 中默认每一个函数都会抛出异常，如果要说明该函数不会抛出异常，那么声明和定义时，都用 throw()<br>如果函数说明为 不会抛出异常，那么内部强行抛出异常，会出现终止程序运行<br>throw() ：是C++ 旧标准的<br>noexcept：是C++ 11 标准中的运算符，32位机中编译时，必须使用 -std=c++0x<br>int func(int, int)throw();</p>
+<h3 id="9-3、自定义异常"><a href="#9-3、自定义异常" class="headerlink" title="9.3、自定义异常"></a>9.3、自定义异常</h3><p>在设计一个大系统的时候,往往设计者会自定义很多错误,这些错误在标准错 误里面是没有的,那么就需要我们来设计一些异常类 </p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+#include <stdexcept>
+#include <string.h>
+
+int fun(int , int);
+
+int fun(int x, int y)
+{
+    if(!y)
+        throw invalid_argument("y==0"); //抛出匿名对象 （没有对象名数据）
+    else if(y == 1)
+    {
+        invalid_argument temp("y==1"); 
+        throw temp; 
+    }
+    else 
+        return x/y;
+    cout << "------"<<endl;
+}
+
+int main()
+{
+    int a,b;
+LOOP:
+    cin >> a >> b;
+    try{
+        cout << fun(a, b) <<endl; 
+    }catch (const invalid_argument &err){  //捕获方式2种：1、 const 为 常量数据取别名 或 2、定义类类型对象
+       cout <<  err.what() << endl;
+
+        //自定义处理方式
+        if(strcmp(err.what(), "y==0")  == 0)
+        {
+            goto LOOP;
+        }
+
+    }
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1635477713189.png" alt="1635477713189"></p>
+<h3 id="9-4、异常规范"><a href="#9-4、异常规范" class="headerlink" title="9.4、异常规范"></a>9.4、异常规范</h3><p> <img src="https://img-blog.csdnimg.cn/b2ace9699a364b47b06261a18d476b20.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDk4MTM3,size_16,color_FFFFFF,t_70" alt="img"> </p>
+<h2 id="十、转换函数"><a href="#十、转换函数" class="headerlink" title="十、转换函数"></a>十、转换函数</h2><h3 id="10-1、什么是转换函数"><a href="#10-1、什么是转换函数" class="headerlink" title="10.1、什么是转换函数"></a>10.1、什么是转换函数</h3><pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+class Demo{
+public:
+    Demo(int x):x(x){}
+    friend ostream & operator << (ostream & out, Demo &obj)  //运算符重载
+    {
+        out << obj.x;
+        return out;
+    }
+private:
+    int x;
+};
+
+class Base{
+public:
+    Base(int x):x(x){}
+    operator int (){   // 转换函数实现 Base 转 int 
+        return x;
+    }
+    operator char(){
+        return  char(x);
+    }
+    operator Demo(){ //Base 转 Demo 都是自定义类型转其他类型， 可用 自己设计的转换函数，但是如果是int * 转int 非自定义类型则要用标准内置转换函数
+        return x;
+    }
+    operator double(){
+        return double (x);
+    }
+private:
+    int x;
+};
+int main()
+{
+    int b = 65;
+    char c = 'B';
+
+    c = b;  //内置转换函数（隐式转换）
+    cout << c << endl;
+    int a = 13 ; 
+    Base obj(66);
+    a = obj; //自定义类型转其他类型，自定转换函数
+
+    cout << a << endl;  //
+
+    char ch = obj ;  //
+    cout << ch << endl; 
+
+    Demo D = obj;  // Demo D = Demo(obj); 
+    double m = obj; // 
+    cout << D << endl; 
+    cout << m << endl; 
+    return 0;
+}
+
+/*
+cout:
+A
+66
+B
+66
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">4#include <iostream>
+using namespace std;
+
+class Subclass; //前向声明  一个不完整的派生类
+
+class Base{
+public:
+    Base (int x):x(x){}
+    operator Subclass(); //转换函数的定义  必须放到派生类定义之后
+private:
+    int x;
+};
+
+class Subclass:public Base{
+public:
+    Subclass(int x ):x(x), Base (x){}
+    friend ostream &operator << (ostream &out, Subclass &obj)
+    {
+        out << obj.x;
+        return out;
+    }
+
+private:
+    int x;
+};
+
+Base :: operator Subclass (){  //转换函数的实现
+    return x;
+}
+
+int main()
+{
+    Subclass a(10);
+    Base b(6);
+    // b = a; //right: 向上隐式转换 
+    a = b; // 向下隐式转换 本来是不允许，但是这里自己设计了转换函数可以实现向下转换
+    cout << a <<endl;  //本来不能直接打印对象，但是这里设计了运算符重载 函数
+
+    return 0;
+}
+
+/*
+cout:
+6
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="10-2、标准转换函数"><a href="#10-2、标准转换函数" class="headerlink" title="10.2、标准转换函数"></a>10.2、标准转换函数</h3><p><img src="https://img-blog.csdnimg.cn/d42a91476ea44cb5bc84409c72db3979.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDk4MTM3,size_16,color_FFFFFF,t_70"></p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+class Base{
+public:
+    //Base (int x):x(x){}
+   explicit Base (int x):x(x){}  //限制隐式转换
+private:
+    int x;
+};
+
+
+int main()
+{
+    Base obj(1);
+    //但单参数的构造函数被 explicit 修饰，表示  该类 不能进行隐式转换，否则可以
+    //Base obj2 = 2; // 构造： Base obj2 = Base(2); 
+
+    //obj =  1;   //赋值
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+class Base{
+public:
+    Base(int x):x(x){}
+private:
+    int x;
+};
+
+class Subclass:public Base{
+public:
+    Subclass(int x):x(x), Base(x){}
+private:
+    int x;
+
+};
+
+int main()
+{
+    int a = 65;
+    int *p = &a;
+    cout << "*p:" << *p <<endl;
+    cout << "p:" <<  p <<endl;
+
+    char *q = reinterpret_cast <char  *>(p); 
+    //q = "hello";
+    cout << "q:" << q  << endl;
+    cout << "*q:" << *q  << endl;
+    
+    int  b = reinterpret_cast <int >(p); 
+    cout << "b:" << b << endl; 
+
+    const char *str = "hello world"; 
+    //char  *s = str;  //error :  str 常量指针 转普通指针 
+    char *buf = const_cast <char *>(str);
+    // *buf =  'k';    //error：buf指向字符串常量区 不能修改 
+    cout << "buf:" << buf << endl;
+    
+
+    Base obj(6);
+    Subclass *s = static_cast<Subclass * >(&obj);  //static_cast实现 普通类型转换和具有继承关系的转换
+
+    //Subclass obj1 = static_cast<Subclass >(obj); 
+    
+    Subclass obj3(3);
+    Base  obj2 = static_cast<Base >( obj3 ); 
+
+
+    return 0;
+}
+
+/*
+*p:65
+p:0xbf99a24c
+q:A
+*q:A
+b:-1080450484
+buf:hello world
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="10-3、自定义转换函数"><a href="#10-3、自定义转换函数" class="headerlink" title="10.3、自定义转换函数"></a>10.3、自定义转换函数</h3><pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+
+
+class Demo{
+public:
+    Demo () {cout << __LINE__<<endl;}
+    ~Demo () {cout << __LINE__<<endl;}
+};
+
+void test()
+{
+    Demo *p = new Demo;
+
+    //delete p;  //如果频繁调用，难免忘记 delete 回收，导致内存泄露，但是有智能指针就ok
+}
+int main()
+{
+    test();
+    
+    test();
+    test();
+    return 0;
+}
+
+/*
+7
+7
+7
+*/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="10-4、慎用转换函数"><a href="#10-4、慎用转换函数" class="headerlink" title="10.4、慎用转换函数"></a>10.4、慎用转换函数</h3><h2 id="十一、智能指针"><a href="#十一、智能指针" class="headerlink" title="十一、智能指针"></a>十一、智能指针</h2><h3 id="11-1、什么是智能指针"><a href="#11-1、什么是智能指针" class="headerlink" title="11.1、什么是智能指针"></a>11.1、什么是智能指针</h3><p><img src="https://img-blog.csdnimg.cn/3620129ffce446c4b78c956d4e503828.png"></p>
+<h3 id="11-2、shared-ptI"><a href="#11-2、shared-ptI" class="headerlink" title="11.2、shared-ptI"></a>11.2、shared-ptI</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token number">8</span>#include <span class="token operator">&lt;</span>iostream<span class="token operator">></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;memory></span>   </span><span class="token comment" spellcheck="true">//加头文件</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token constant">__LINE__</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token operator">~</span><span class="token function">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token constant">__LINE__</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token constant">__LINE__</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//定义一个shared_ptr 智能指针，此处有重载 * 运算符</span>
+    shared_ptr<span class="token operator">&lt;</span>Demo<span class="token operator">></span> <span class="token function">p</span>   <span class="token punctuation">(</span><span class="token keyword">new</span> Demo<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//编译加 -std=c++0x </span>
+    p<span class="token operator">-</span><span class="token operator">></span><span class="token function">fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    
+    shared_ptr<span class="token operator">&lt;</span>Demo<span class="token operator">></span> pp <span class="token operator">=</span> p<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//pp 和 p 共享同一个地址</span>
+    pp<span class="token operator">-</span><span class="token operator">></span><span class="token function">fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token macro property">#<span class="token directive keyword">if</span> 1</span><span class="token comment" spellcheck="true">//定义的两种方式</span>
+    shared_ptr<span class="token operator">&lt;</span>Demo<span class="token operator">></span> <span class="token function">q</span>  <span class="token punctuation">(</span><span class="token keyword">new</span> Demo<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    shared_ptr<span class="token operator">&lt;</span>Demo<span class="token operator">></span> q2  <span class="token operator">=</span> make_shared<span class="token operator">&lt;</span>Demo<span class="token operator">></span><span class="token punctuation">(</span><span class="token function">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span> </span>
+
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"-------------"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="11-3、unique-ptr"><a href="#11-3、unique-ptr" class="headerlink" title="11.3、unique ptr"></a>11.3、unique ptr</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;memory></span>   </span><span class="token comment" spellcheck="true">//加头文件</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token constant">__LINE__</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token operator">~</span><span class="token function">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token constant">__LINE__</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token constant">__LINE__</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//定义一个unique_ptr 智能指针，资源独享 智能指针</span>
+    unique_ptr<span class="token operator">&lt;</span>Demo<span class="token operator">></span> <span class="token function">p</span>   <span class="token punctuation">(</span><span class="token keyword">new</span> Demo<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//编译加 -std=c++0x </span>
+    p<span class="token operator">-</span><span class="token operator">></span><span class="token function">fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    
+    <span class="token comment" spellcheck="true">//unique_ptr&lt;Demo> pp = p;   //不允许pp 和 p 共享同一个地址（独享智能指针）</span>
+   <span class="token comment" spellcheck="true">// pp->fun();</span>
+
+ <span class="token macro property">#<span class="token directive keyword">if</span> 0</span><span class="token comment" spellcheck="true">//定义的两种方式</span>
+    unique_ptr<span class="token operator">&lt;</span>Demo<span class="token operator">></span> <span class="token function">q</span>  <span class="token punctuation">(</span><span class="token keyword">new</span> Demo<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    unique_ptr<span class="token operator">&lt;</span>Demo<span class="token operator">></span> q2  <span class="token operator">=</span> make_unique <span class="token operator">&lt;</span>Demo<span class="token operator">></span> <span class="token punctuation">(</span><span class="token function">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span> </span>
+
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"-------------"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="11-4、weak-ptr"><a href="#11-4、weak-ptr" class="headerlink" title="11.4、weak-ptr"></a>11.4、weak-ptr</h3><h2 id="十二、STL"><a href="#十二、STL" class="headerlink" title="十二、STL"></a>十二、STL</h2><h3 id="12-1、STL简介"><a href="#12-1、STL简介" class="headerlink" title="12.1、STL简介"></a>12.1、STL简介</h3><h3 id="12-2、标准容器简介"><a href="#12-2、标准容器简介" class="headerlink" title="12.2、标准容器简介"></a>12.2、标准容器简介</h3><h3 id="12-3、vector"><a href="#12-3、vector" class="headerlink" title="12.3、vector"></a>12.3、vector</h3><h3 id="12-4、ist"><a href="#12-4、ist" class="headerlink" title="12.4、ist"></a>12.4、ist</h3><h3 id="12-5、deque"><a href="#12-5、deque" class="headerlink" title="12.5、deque"></a>12.5、deque</h3>
                 
             </div>
             <hr/>
@@ -2125,33 +3358,6 @@ cout:
             
         </div>
     </div>
-
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: '',
-        owner: '',
-        admin: null,
-        id: '2021-10-25T09-10-12',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
 
     
 
@@ -2412,8 +3618,8 @@ cout:
 <script>
     new Valine({
         el: '#vcomments',
-        appId: '',
-        appKey: '',
+        appId: 'RI3egRclleOHHB1LsfdoUakd-gzGzoHsz',
+        appKey: 'H9wmIhcjdndlbjsdvwKY07yB',
         notify: 'false' === 'true',
         verify: 'false' === 'true',
         visitor: 'true' === 'true',
@@ -2481,13 +3687,13 @@ cout:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/24/c-he-xin-bian-cheng/">
+                <a href="/2021/10/22/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -2498,7 +3704,7 @@ cout:
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-22
                             </span>
                         <span class="publish-author">
                             
@@ -2924,8 +4130,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
