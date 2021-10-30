@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-29T11:52:10.475Z</updated>
+  <updated>2021-10-30T03:08:01.713Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,26 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Linux</title>
-    <link href="http://example.com/2021/10/29/index/"/>
-    <id>http://example.com/2021/10/29/index/</id>
-    <published>2021-10-29T11:47:34.637Z</published>
-    <updated>2021-10-29T11:52:10.475Z</updated>
-    
-    
-    
-    
-    <category term="Linux_c" scheme="http://example.com/categories/Linux-c/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
+    <title>c++核心编程</title>
     <link href="http://example.com/2021/10/27/c-he-xin-bian-cheng/"/>
     <id>http://example.com/2021/10/27/c-he-xin-bian-cheng/</id>
     <published>2021-10-27T11:25:53.143Z</published>
-    <updated>2021-10-28T11:58:28.168Z</updated>
+    <updated>2021-10-30T03:08:01.713Z</updated>
     
     
       
@@ -50,15 +35,17 @@
     
     
     
+    <category term="c++" scheme="http://example.com/categories/c/"/>
+    
     
   </entry>
   
   <entry>
-    <title></title>
+    <title>看板娘</title>
     <link href="http://example.com/2021/10/26/hexo-bo-ke-matery-zhu-ti-mei-hua-zhi-kan-ban-niang-neng-shuo-hua-neng-huan-zhuang-qie-huan-xiao-ren/"/>
     <id>http://example.com/2021/10/26/hexo-bo-ke-matery-zhu-ti-mei-hua-zhi-kan-ban-niang-neng-shuo-hua-neng-huan-zhuang-qie-huan-xiao-ren/</id>
     <published>2021-10-26T03:08:14.445Z</published>
-    <updated>2021-10-27T03:05:52.950Z</updated>
+    <updated>2021-10-30T03:07:13.511Z</updated>
     
     
       
@@ -71,6 +58,8 @@
     
     
     
+    <category term="工具" scheme="http://example.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
     
   </entry>
   
@@ -79,7 +68,7 @@
     <link href="http://example.com/2021/10/25/c-cheng-xu-she-ji/"/>
     <id>http://example.com/2021/10/25/c-cheng-xu-she-ji/</id>
     <published>2021-10-25T01:10:12.751Z</published>
-    <updated>2021-10-29T11:31:44.045Z</updated>
+    <updated>2021-10-30T03:04:17.374Z</updated>
     
     
       
@@ -92,26 +81,7 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2021/10/22/hello-world/"/>
-    <id>http://example.com/2021/10/22/hello-world/</id>
-    <published>2021-10-22T14:27:42.476Z</published>
-    <updated>2021-10-22T14:27:42.476Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
-        
-      
-    
-    
+    <category term="c++" scheme="http://example.com/categories/c/"/>
     
     
   </entry>
