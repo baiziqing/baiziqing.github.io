@@ -454,7 +454,7 @@ C++是C的升级、面向对象
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-30
+                    2021-11-01
                 </div>
                 
 
@@ -2913,7 +2913,7 @@ B
 66
 */
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-c++"><code class="language-c++">4#include <iostream>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
 using namespace std;
 
 class Subclass; //前向声明  一个不完整的派生类
@@ -3139,7 +3139,31 @@ int main()
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="11-4、weak-ptr"><a href="#11-4、weak-ptr" class="headerlink" title="11.4、weak-ptr"></a>11.4、weak-ptr</h3><h2 id="十二、STL"><a href="#十二、STL" class="headerlink" title="十二、STL"></a>十二、STL</h2><h3 id="12-1、STL简介"><a href="#12-1、STL简介" class="headerlink" title="12.1、STL简介"></a>12.1、STL简介</h3><h3 id="12-2、标准容器简介"><a href="#12-2、标准容器简介" class="headerlink" title="12.2、标准容器简介"></a>12.2、标准容器简介</h3><h3 id="12-3、vector"><a href="#12-3、vector" class="headerlink" title="12.3、vector"></a>12.3、vector</h3><h3 id="12-4、ist"><a href="#12-4、ist" class="headerlink" title="12.4、ist"></a>12.4、ist</h3><h3 id="12-5、deque"><a href="#12-5、deque" class="headerlink" title="12.5、deque"></a>12.5、deque</h3>
+<h3 id="11-4、weak-ptr"><a href="#11-4、weak-ptr" class="headerlink" title="11.4、weak-ptr"></a>11.4、weak-ptr</h3><h2 id="十二、STL"><a href="#十二、STL" class="headerlink" title="十二、STL"></a>十二、STL</h2><h3 id="12-1、STL简介"><a href="#12-1、STL简介" class="headerlink" title="12.1、STL简介"></a>12.1、STL简介</h3><p>STL 即标准模板库</p>
+<p><strong>STL可分为六个部分：</strong></p>
+<ul>
+<li><p>容器( containers )<br>特殊的数据结构,实现了数组、链表、队列、等等,实质是模板类</p>
+</li>
+<li><p>迭代器( iterators )<br>一种复杂的指针,可以通过其读写容器中的对象,实质是运算符重载</p>
+</li>
+<li><p>算法( algorithms )<br>读写容器对象的逻辑算法:排序、遍历、查找、等等,实质是模板函数</p>
+</li>
+<li><p>空间配置器( allocator)<br>容器的空间配置管理的模板类</p>
+</li>
+<li><p>配接器( adapters )<br>用来修饰容器、仿函数、迭代器接口</p>
+</li>
+<li><p>仿函数( functors )<br>类似函数,通过重载()运算符来模拟函数行为的类</p>
+</li>
+</ul>
+<h3 id="12-2、标准容器简介"><a href="#12-2、标准容器简介" class="headerlink" title="12.2、标准容器简介"></a>12.2、标准容器简介</h3><p> STL标准模版库是一种泛型编程。</p>
+<blockquote>
+<p>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/zb1593496558/article/details/80987071">STL常用接口大全</a></p>
+</blockquote>
+<h3 id="12-3、vector"><a href="#12-3、vector" class="headerlink" title="12.3、vector"></a>12.3、vector</h3><p><img src="https://img-blog.csdnimg.cn/d2fa2d924f1a4b5e910f0c1977f3dbc8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDk4MTM3,size_16,color_FFFFFF,t_70"></p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token number">1</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="12-4、ist"><a href="#12-4、ist" class="headerlink" title="12.4、ist"></a>12.4、ist</h3><p><img src="https://img-blog.csdnimg.cn/619a72857daf4a64acce8ad25c72834d.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDk4MTM3,size_16,color_FFFFFF,t_70"></p>
+<h3 id="12-5、deque"><a href="#12-5、deque" class="headerlink" title="12.5、deque"></a>12.5、deque</h3>
                 
             </div>
             <hr/>
@@ -3878,7 +3902,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.9k</span>
+                        class="white-color">29.5k</span>
             
             
             
