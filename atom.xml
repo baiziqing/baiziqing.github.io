@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-01T12:21:47.723Z</updated>
+  <updated>2021-11-02T02:53:03.884Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://example.com/2021/11/02/qt-gui-bian-cheng/"/>
+    <id>http://example.com/2021/11/02/qt-gui-bian-cheng/</id>
+    <published>2021-11-02T02:47:43.202Z</published>
+    <updated>2021-11-02T02:53:03.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;@[TOC](QT GUI编程)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;font face=&quot;微软雅黑&quot; color=&quot;#FF0000&quot; size=&quot;4&quot;&gt;统一声明：&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;##00BFFF&quot; size=&quot;3&quot;&gt;博客转载 声 明</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>4.LinuxC语言高级专题 &lt;朱有鹏&gt;</title>
     <link href="http://example.com/2021/11/01/linuxc-yu-yan-gao-ji-zhuan-ti/"/>
     <id>http://example.com/2021/11/01/linuxc-yu-yan-gao-ji-zhuan-ti/</id>
     <published>2021-11-01T11:14:22.612Z</published>
-    <updated>2021-11-01T12:21:47.723Z</updated>
+    <updated>2021-11-01T12:24:44.016Z</updated>
     
     
       

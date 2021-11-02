@@ -620,7 +620,7 @@
 <p>数组在定义时必须同时给出数组元素个数（数组大小），而且一旦定义再无法更改。在Java等高级语言中，一些语法技巧可以更改数组大小，但其实这只是一种障眼法。<br>他的工作原理是：先重新创建一个新的数组大小为要更改的数组，然后将原数组的所有元素复制进新的数组，然后释放原数组，最后返回新的数组给用户。</p>
 <p>堆内存申请时必须给定大小，然后一旦申请完成大小不变，如果要变只能通过realloc接口。realloc的实现原理类似于java中的可变大小数组的方式。                        </p>
 <h4 id="4-1-8-4、堆的优势和劣势（管理大块内存、灵活、容易内存泄漏）。"><a href="#4-1-8-4、堆的优势和劣势（管理大块内存、灵活、容易内存泄漏）。" class="headerlink" title="4.1.8.4、堆的优势和劣势（管理大块内存、灵活、容易内存泄漏）。"></a>4.1.8.4、堆的优势和劣势（管理大块内存、灵活、容易内存泄漏）。</h4><p><strong>优势：</strong>灵活。<br><strong>劣势：</strong>需要程序员去处理工作细节，所以容易出错，严重依赖于程序员的水平。</p>
-<h3 id="4-1-9-复杂数据结构"><a href="#4-1-9-复杂数据结构" class="headerlink" title="4.1.9.复杂数据结构"></a>4.1.9.复杂数据结构</h3><h4 id="4-1-9-1、链表、哈希表、二叉树、图等。"><a href="#4-1-9-1、链表、哈希表、二叉树、图等。" class="headerlink" title="4.1.9.1、链表、哈希表、二叉树、图等。"></a>4.1.9.1、链表、哈希表、二叉树、图等。</h4><p>链表是最重要的，链表在Linux中使用特别多，在驱动和应用在编写时都需要使用链表，所以链表必须掌握。<br>掌握到：会自己定义结构体来实现链表，会写链表的节点插入（前插、后插）、节点删除、节点查找、节点遍历。（至于像逆序这些很少用，掌握了前面那几个这个也不难）。</p>
+<h3 id="4-1-9-复杂数据结构"><a href="#4-1-9-复杂数据结构" class="headerlink" title="4.1.9.复杂数据结构"></a>4.1.9.复杂数据结构</h3><h4 id="4-1-9-1、链表、哈希表、二叉树、图等。"><a href="#4-1-9-1、链表、哈希表、二叉树、图等。" class="headerlink" title="4.1.9.1、链表、哈希表、二叉树、图等。"></a>4.1.9.1、链表、哈希表、二叉树、图等。</h4><p><strong>链表是最重要的：</strong>链表在Linux中使用特别多，在驱动和应用在编写时都需要使用链表，所以链表必须掌握。<br><strong>掌握到：</strong>会自己定义结构体来实现链表，会写链表的节点插入（前插、后插）、节点删除、节点查找、节点遍历。（至于像逆序这些很少用，掌握了前面那几个这个也不难）。</p>
 <p>哈希表不是很常用，一般不需要自己实现，而直接使用别人实现的哈希表比较多。对我们来说重要明白哈希表原理，从而知道哈希表，当看到别人用了哈希表就要明白别人为什么要用哈希表，合适不合适？有没有更好的选择。</p>
 <p>二叉树、图。对于这些复杂数据结构、不要太当回事。这些复制数据结构用到的概率很小（在嵌入式开发中），其实这些数据结构被发明出来就是为了解决特定的问题的，你不处理特定问题根本用不到这些，没必要去研究。                            </p>
 <h4 id="4-1-9-2、为什么需要复杂的数据结构。"><a href="#4-1-9-2、为什么需要复杂的数据结构。" class="headerlink" title="4.1.9.2、为什么需要复杂的数据结构。"></a>4.1.9.2、为什么需要复杂的数据结构。</h4><p>因为现实中的问题是多种多样的，问题的复杂度不同需要解决的问题的算法和数据结构也不同的。<br>所以当你处理什么复杂度的问题，就去研究针对性解决问题的数据结构和算法；当你没有遇到此类问题（或者你工作的领域根本跟这个就没关系）时就不要管了。    </p>
@@ -1127,17 +1127,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/01/linuxc-yu-yan-gao-ji-zhuan-ti/">
+                <a href="/2021/11/02/qt-gui-bian-cheng/">
                     <div class="card-image">
                         
-                        <img src="/article/wallhaven-v9dr6p.jpg" class="responsive-img" alt="4.LinuxC语言高级专题 &lt;朱有鹏&gt;">
                         
-                        <span class="card-title">4.LinuxC语言高级专题 &lt;朱有鹏&gt;</span>
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1147,22 +1147,17 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-02
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/c%E8%AF%AD%E8%A8%80/" class="post-category">
-                                    c语言
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            baiziqing
                             
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -1368,7 +1363,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">29.5k</span>
+                        class="white-color">39.3k</span>
             
             
             
